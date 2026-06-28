@@ -17,22 +17,27 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{background:var(--bg)}
 body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;max-width:430px;margin:0 auto;display:flex;flex-direction:column}
+.screen{display:none;flex-direction:column;flex:1}.screen.on{display:flex}
 
-.screen{display:none;flex-direction:column;flex:1}
-.screen.on{display:flex}
+/* LOADING */
+.loading-screen{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+.loading-title{font-size:28px;font-weight:800;letter-spacing:-1px}.loading-title span{color:var(--acc)}
+.loading-sub{font-size:13px;color:var(--muted)}
+.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--acc);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sync-dot{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;margin-right:5px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
 /* ONBOARDING */
 .ob-wrap{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:40px 20px 60px;display:flex;flex-direction:column;gap:20px}
 .ob-logo{text-align:center;padding:10px 0 4px}
-.ob-title{font-size:34px;font-weight:800;letter-spacing:-1px}
-.ob-title span{color:var(--acc)}
+.ob-title{font-size:34px;font-weight:800;letter-spacing:-1px}.ob-title span{color:var(--acc)}
 .ob-sub{font-size:13px;color:var(--muted);margin-top:5px}
 .ob-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);overflow:hidden}
 .ob-card-title{padding:12px 16px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border);background:var(--bg3)}
 .name-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px}
 .name-btn{padding:18px 10px;border-radius:10px;border:2px solid var(--border);background:var(--bg3);cursor:pointer;text-align:center;transition:all .15s;color:var(--text)}
-.name-btn .av{font-size:30px;display:block;margin-bottom:5px}
-.name-btn .nm{font-size:15px;font-weight:700}
+.name-btn .av{font-size:30px;display:block;margin-bottom:5px}.name-btn .nm{font-size:15px;font-weight:700}
 .name-btn.sel{border-color:var(--acc);background:rgba(196,56,32,.12)}
 .goal-list{padding:10px 14px;display:flex;flex-direction:column;gap:8px}
 .goal-row{display:flex;gap:8px;align-items:flex-start}
@@ -58,27 +63,26 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
 .banner.show{display:flex}
 .banner-warn{background:rgba(196,56,32,.92);color:#fff}
 .banner-sun{background:rgba(232,160,32,.92);color:#0f0f14}
+.banner-sync{background:rgba(76,175,118,.15);color:var(--green);border-bottom:1px solid rgba(76,175,118,.2)}
 .topbar{background:var(--bg);border-bottom:1px solid var(--border);padding:14px 16px 12px;display:flex;justify-content:space-between;align-items:flex-start;flex-shrink:0}
 .topbar h1{font-size:18px;font-weight:800;letter-spacing:-.5px}
 .topbar .sub{font-size:11px;color:var(--muted);margin-top:2px}
+.topbar-right{display:flex;align-items:center;gap:8px}
+.sync-status{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px}
 .gear{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;padding:2px}
-.pages{flex:1}
-.page{display:none;padding-bottom:90px}
-.page.on{display:block}
+.pages{flex:1}.page{display:none;padding-bottom:90px}.page.on{display:block}
 .nav-bar{background:var(--bg2);border-top:1px solid var(--border);display:flex;padding-bottom:var(--sb);flex-shrink:0;position:sticky;bottom:0;z-index:50}
 .nb{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 4px 8px;border:none;background:none;color:var(--muted);font-size:10px;cursor:pointer;transition:color .15s;position:relative}
-.nb.on{color:var(--acc)}
-.nb-icon{font-size:20px;line-height:1}
+.nb.on{color:var(--acc)}.nb-icon{font-size:20px;line-height:1}
 .nb-badge{position:absolute;top:6px;right:calc(50% - 18px);background:var(--acc);color:#fff;border-radius:10px;font-size:9px;font-weight:700;padding:1px 5px;min-width:16px;text-align:center;display:none}
 
-/* LAYOUT UTILS */
+/* LAYOUT */
 .sec{margin:14px 16px 0}
 .sec-title{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);overflow:hidden}
-.row-sep{border-bottom:1px solid var(--border)}
-.row-sep:last-child{border-bottom:none}
+.row-sep{border-bottom:1px solid var(--border)}.row-sep:last-child{border-bottom:none}
 
-/* SCORE PILLS — the two numbers */
+/* SCORE PILLS */
 .score-pair{display:flex;gap:8px;margin:14px 16px 0}
 .score-pill{flex:1;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px 12px;text-align:center}
 .score-pill-num{font-size:30px;font-weight:800;line-height:1}
@@ -93,7 +97,7 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
 .wt-goal-row:last-child{border-bottom:none}
 .wt-goal-name{flex:1;font-size:13px}
 .wt-counter{display:flex;align-items:center;gap:8px}
-.wt-btn{width:30px;height:30px;border-radius:8px;border:none;background:var(--bg3);color:var(--text);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;border:1px solid var(--border)}
+.wt-btn{width:30px;height:30px;border-radius:8px;border:1px solid var(--border);background:var(--bg3);color:var(--text);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700}
 .wt-btn:active{background:var(--bg4)}
 .wt-count{font-size:15px;font-weight:700;min-width:32px;text-align:center}
 .wt-target{font-size:11px;color:var(--muted)}
@@ -123,7 +127,7 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
 .chk-btn{padding:6px 10px;border-radius:8px;border:1px solid var(--border);font-size:11px;font-weight:600;cursor:pointer;background:var(--bg3);color:var(--muted);white-space:nowrap}
 .chk-btn.done-proof{color:var(--green)}
 
-/* WORKOUT CHIPS */
+/* WORKOUT */
 .wchips{display:flex;flex-wrap:wrap;gap:5px;padding:10px 14px;background:var(--bg3);border-bottom:1px solid var(--border)}
 .wchip{font-size:11px;padding:4px 10px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);color:var(--muted);cursor:pointer;transition:all .15s}
 .wchip.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
@@ -142,7 +146,7 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
 .other-today{margin:14px 16px 0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px}
 .ot-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .ot-name{font-size:14px;font-weight:700}
-.ot-pcts{display:flex;gap:8px}
+.ot-pcts{display:flex;gap:6px}
 .ot-pct{font-size:11px;padding:2px 8px;border-radius:8px;font-weight:600}
 .ot-prog{height:5px;background:var(--bg3);border-radius:3px;overflow:hidden;margin-bottom:8px}
 .ot-fill{height:100%;border-radius:3px;background:var(--acc);transition:width .4s}
@@ -151,8 +155,7 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
 /* VALIDAR */
 .val-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);margin:10px 16px 0;overflow:hidden}
 .val-hdr{padding:12px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-.val-info{flex:1}
-.val-date{font-size:11px;color:var(--muted);margin-bottom:3px}
+.val-info{flex:1}.val-date{font-size:11px;color:var(--muted);margin-bottom:3px}
 .val-goal{font-size:14px;font-weight:600}
 .val-thumb{width:52px;height:52px;border-radius:8px;object-fit:cover;cursor:pointer;flex-shrink:0;border:1px solid var(--border)}
 .val-meta{padding:0 14px 10px;display:flex;flex-wrap:wrap;gap:5px;font-size:12px}
@@ -167,8 +170,7 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
 .val-done-row{padding:12px 14px;text-align:center;font-size:13px;font-weight:700}
 .empty-state{padding:36px 20px;text-align:center;color:var(--muted);font-size:14px;line-height:1.7}
 .sunday-banner{margin:14px 16px 0;background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.3);border-radius:var(--rad);padding:14px;display:flex;align-items:center;gap:12px}
-.sun-icon{font-size:22px}
-.sun-text{flex:1}
+.sun-icon{font-size:22px}.sun-text{flex:1}
 .sun-title{font-size:13px;font-weight:700;color:var(--gold)}
 .sun-sub{font-size:11px;color:var(--muted);margin-top:2px}
 .sun-btn{background:var(--gold);color:#0f0f14;border:none;border-radius:8px;padding:8px 13px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
@@ -177,16 +179,12 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
 .prog-duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 16px 0}
 .prog-col{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px}
 .prog-col-name{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
-.prog-score-row{display:flex;gap:8px;align-items:flex-end;margin-bottom:10px}
 .prog-personal{font-size:28px;font-weight:800;line-height:1}
-.prog-verified{font-size:13px;font-weight:700;color:var(--gold);margin-bottom:2px}
+.prog-verified{font-size:18px;font-weight:700;color:var(--gold)}
 .prog-verified-label{font-size:9px;color:var(--muted)}
 .great{color:var(--green)}.ok{color:var(--gold)}.bad{color:var(--acc)}
 .prog-bar{height:5px;background:var(--bg3);border-radius:3px;overflow:hidden;margin-bottom:3px}
 .prog-fill{height:100%;border-radius:3px;transition:width .4s}
-.fill-personal{background:var(--acc)}
-.fill-verified{background:var(--gold)}
-.fill-green{background:var(--green)}
 .prog-week-bars{margin-top:10px}
 .pwb-row{margin-bottom:6px}
 .pwb-label{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:2px}
@@ -207,11 +205,10 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
 .week-nav{display:flex;align-items:center;justify-content:space-between;margin:14px 16px 0}
 .wn-btn{background:var(--bg2);border:1px solid var(--border);color:var(--text);width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center}
 .wn-label{font-size:13px;font-weight:700}
-.week-summary{margin:12px 16px 0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);overflow:hidden}
+.week-summary{margin:10px 16px 0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);overflow:hidden}
 .ws-header{padding:14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
-.ws-left h3{font-size:14px;font-weight:700}
-.ws-left p{font-size:11px;color:var(--muted);margin-top:2px}
-.ws-scores{display:flex;gap:10px;text-align:right}
+.ws-left h3{font-size:14px;font-weight:700}.ws-left p{font-size:11px;color:var(--muted);margin-top:2px}
+.ws-scores{display:flex;gap:10px}
 .ws-score-block{text-align:center}
 .ws-score-num{font-size:20px;font-weight:800;line-height:1}
 .ws-score-label{font-size:9px;color:var(--muted);margin-top:2px}
@@ -219,11 +216,11 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
 .ws-goal-row{display:flex;align-items:center;gap:8px}
 .ws-goal-name{flex:1;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ws-goal-bar{width:60px;height:5px;background:var(--bg3);border-radius:3px;overflow:hidden}
-.ws-goal-fill{height:100%;border-radius:3px;background:var(--acc)}
+.ws-goal-fill{height:100%;border-radius:3px}
 .ws-goal-pct{font-size:11px;font-weight:700;min-width:30px;text-align:right}
 .ws-wts{padding:10px 14px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:5px}
 .ws-wt-chip{font-size:10px;padding:2px 8px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);color:var(--muted)}
-.locked-week{margin:12px 16px 0;background:var(--bg3);border:1px solid var(--border);border-radius:var(--rad);padding:13px 14px;text-align:center;font-size:13px;color:var(--muted)}
+.locked-week{margin:10px 16px 0;background:var(--bg3);border:1px solid var(--border);border-radius:var(--rad);padding:13px 14px;text-align:center;font-size:13px;color:var(--muted)}
 .val-status{margin:10px 16px 0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:13px 14px;display:flex;justify-content:space-between;align-items:center;font-size:13px}
 
 /* MODALS */
@@ -267,14 +264,22 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
 </head>
 <body>
 
+<!-- LOADING -->
+<div class="screen on" id="screen-loading">
+  <div class="loading-screen">
+    <div class="loading-title">El <span>Reto</span></div>
+    <div class="spinner"></div>
+    <div class="loading-sub">Conectando...</div>
+  </div>
+</div>
+
 <!-- ONBOARDING -->
-<div class="screen on" id="screen-ob">
+<div class="screen" id="screen-ob">
 <div class="ob-wrap">
   <div class="ob-logo">
     <div class="ob-title">El <span>Reto</span></div>
     <div class="ob-sub">90 días · 2 personas · 1 plan</div>
   </div>
-
   <div class="ob-card">
     <div class="ob-card-title">¿Quién eres?</div>
     <div class="name-btns">
@@ -282,19 +287,16 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
       <div class="name-btn" onclick="selectName('fran',this)"><span class="av">⚡</span><span class="nm">Fran</span></div>
     </div>
   </div>
-
   <div class="ob-card">
     <div class="ob-card-title">Tus objetivos</div>
     <div class="ob-hint">Elige si cada objetivo es <strong style="color:var(--blue)">diario</strong> (lo hago cada día) o <strong style="color:var(--gold)">semanal</strong> (tengo un número objetivo a la semana).</div>
     <div class="goal-list" id="goal-list"></div>
     <button class="add-goal-btn" id="add-goal-btn" onclick="addGoalInput()">+ Añadir objetivo</button>
   </div>
-
   <div class="ob-card">
     <div class="ob-card-title">Premio compartido 🏆</div>
-    <input class="prize-input" id="prize-input" type="text" placeholder="¿Qué os ganareis si los dos llegáis al 80%?" value="Un plan chulo juntos">
+    <input class="prize-input" id="prize-input" type="text" placeholder="¿Qué os ganareis si llegáis al 80%?" value="Un plan chulo juntos">
   </div>
-
   <button class="ob-confirm" id="ob-confirm" onclick="confirmOnboarding()" disabled>Empezar el reto →</button>
 </div>
 </div>
@@ -303,12 +305,16 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
 <div class="screen" id="screen-app">
 <div class="app">
   <div class="banners">
+    <div class="banner banner-sync show" id="banner-sync"><span class="sync-dot"></span>Sincronizado con Supabase</div>
     <div class="banner banner-warn" id="banner-warn">⚠️ Aún no has registrado nada hoy</div>
     <div class="banner banner-sun" id="banner-sun">📋 Domingo — toca revisar la semana del otro</div>
   </div>
   <div class="topbar">
     <div><h1 id="topbar-name">El Reto</h1><div class="sub" id="topbar-sub"></div></div>
-    <button class="gear" onclick="showSettings()">⚙️</button>
+    <div class="topbar-right">
+      <div class="sync-status" id="sync-status"><span class="sync-dot"></span>en línea</div>
+      <button class="gear" onclick="showSettings()">⚙️</button>
+    </div>
   </div>
   <div class="pages">
     <div class="page on" id="page-hoy"></div>
@@ -317,19 +323,10 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
     <div class="page" id="page-semana"></div>
   </div>
   <nav class="nav-bar">
-    <button class="nb on" onclick="goPage('hoy',this)">
-      <span class="nb-icon">🔥</span>Hoy
-    </button>
-    <button class="nb" onclick="goPage('validar',this)">
-      <span class="nb-icon">✅</span>Validar
-      <span class="nb-badge" id="val-badge">!</span>
-    </button>
-    <button class="nb" onclick="goPage('progreso',this)">
-      <span class="nb-icon">📊</span>Progreso
-    </button>
-    <button class="nb" onclick="goPage('semana',this)">
-      <span class="nb-icon">📅</span>Semana
-    </button>
+    <button class="nb on" onclick="goPage('hoy',this)"><span class="nb-icon">🔥</span>Hoy</button>
+    <button class="nb" onclick="goPage('validar',this)"><span class="nb-icon">✅</span>Validar<span class="nb-badge" id="val-badge">!</span></button>
+    <button class="nb" onclick="goPage('progreso',this)"><span class="nb-icon">📊</span>Progreso</button>
+    <button class="nb" onclick="goPage('semana',this)"><span class="nb-icon">📅</span>Semana</button>
   </nav>
 </div>
 </div>
@@ -339,6 +336,7 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
   <div class="modal">
     <div class="modal-title">Ajustes</div>
     <button class="modal-btn" onclick="switchUser()">🔄 Cambiar usuario</button>
+    <button class="modal-btn" onclick="forceSync()">🔄 Forzar sincronización</button>
     <button class="modal-btn" onclick="resetAll()" style="color:var(--acc)">🗑️ Resetear todo</button>
     <div class="modal-cancel" onclick="hideSettings()">Cancelar</div>
   </div>
@@ -355,7 +353,6 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
   <div class="review-inner" id="review-inner"></div>
 </div>
 
-<!-- CONFETTI + PRIZE -->
 <div class="confetti-wrap" id="confetti-wrap"></div>
 <div class="prize-overlay" id="prize-overlay">
   <div class="prize-big-emoji">🎉</div>
@@ -365,12 +362,109 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
   <button class="prize-share" onclick="sharePrize()">Compartir logro 🎊</button>
   <button class="prize-close" onclick="closePrize()">Cerrar</button>
 </div>
-
 <div class="toast" id="toast"></div>
 
 <script>
 // ============================================================
-// CONFIG
+// SUPABASE CONFIG
+// ============================================================
+const SUPA_URL = 'https://gznpjzerrckiailmidar.supabase.co';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd6bnBqemVycmNraWFpbG1pZGFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NDMwNDgsImV4cCI6MjA5ODIxOTA0OH0.edCp4-wa0fpTsZrmldrddNvsKKFX4IC_7Hs3p9E2Ypc';
+
+// ============================================================
+// SUPABASE REST + REALTIME (no SDK, vanilla fetch + WebSocket)
+// ============================================================
+const DB = {
+  async get(key) {
+    try {
+      const r = await fetch(`${SUPA_URL}/rest/v1/reto_data?key=eq.${key}&select=value`, {
+        headers: { 'apikey': SUPA_KEY, 'Authorization': `Bearer ${SUPA_KEY}` }
+      });
+      const data = await r.json();
+      return data && data[0] ? data[0].value : null;
+    } catch(e) { console.error('DB.get error', e); return null; }
+  },
+
+  async set(key, value) {
+    try {
+      await fetch(`${SUPA_URL}/rest/v1/reto_data`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPA_KEY, 'Authorization': `Bearer ${SUPA_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'resolution=merge-duplicates'
+        },
+        body: JSON.stringify({ key, value, updated_at: new Date().toISOString() })
+      });
+    } catch(e) { console.error('DB.set error', e); }
+  },
+
+  // Realtime via Supabase Realtime WebSocket
+  subscribe(callback) {
+    const wsUrl = SUPA_URL.replace('https://', 'wss://') + '/realtime/v1/websocket?apikey=' + SUPA_KEY + '&vsn=1.0.0';
+    let ws, pingInterval;
+
+    function connect() {
+      try {
+        ws = new WebSocket(wsUrl);
+        ws.onopen = () => {
+          setSyncStatus(true);
+          // Join channel
+          ws.send(JSON.stringify({
+            topic: 'realtime:public:reto_data',
+            event: 'phx_join',
+            payload: { config: { broadcast: { self: false }, presence: { key: '' } } },
+            ref: '1'
+          }));
+          // Heartbeat
+          pingInterval = setInterval(() => {
+            if(ws.readyState === 1) ws.send(JSON.stringify({ topic: 'phoenix', event: 'heartbeat', payload: {}, ref: '0' }));
+          }, 25000);
+        };
+        ws.onmessage = (e) => {
+          try {
+            const msg = JSON.parse(e.data);
+            if(msg.event === 'INSERT' || msg.event === 'UPDATE' || msg.event === 'DELETE') {
+              callback(msg);
+            }
+          } catch(err) {}
+        };
+        ws.onclose = () => {
+          setSyncStatus(false);
+          clearInterval(pingInterval);
+          setTimeout(connect, 3000); // reconnect
+        };
+        ws.onerror = () => { setSyncStatus(false); };
+      } catch(e) { setSyncStatus(false); }
+    }
+    connect();
+  }
+};
+
+// ============================================================
+// APP STATE — data lives in memory, persisted to Supabase
+// ============================================================
+// Keys in Supabase: 'luz', 'fran', 'shared'
+let appData = { luz: null, fran: null, shared: null };
+let currentUser = null; // 'luz' or 'fran'
+let syncOnline = false;
+
+function other() { return currentUser === 'luz' ? 'fran' : 'luz'; }
+function getMe() { return appData[currentUser]; }
+function getOther() { return appData[other()]; }
+function getShared() { return appData.shared || {}; }
+
+function setSyncStatus(online) {
+  syncOnline = online;
+  const el = document.getElementById('sync-status');
+  const dot = el?.querySelector('.sync-dot');
+  if(el) el.innerHTML = online
+    ? '<span class="sync-dot"></span>en línea'
+    : '<span style="width:8px;height:8px;border-radius:50%;background:var(--acc);display:inline-block;margin-right:5px"></span>sin conexión';
+}
+
+// ============================================================
+// CONSTANTS
 // ============================================================
 const START = new Date(2026,5,28);
 const END   = new Date(2026,8,25);
@@ -378,24 +472,18 @@ const TOTAL_DAYS = 90;
 const WT_CHIPS = ['Tren superior','Piernas','Full body','MMA','Kickboxing','Cardio','Descanso'];
 
 // ============================================================
-// STORAGE
-// ============================================================
-function getS(){ try{ return JSON.parse(localStorage.getItem('elreto')||'{}'); }catch(e){ return {}; } }
-function setS(d){ localStorage.setItem('elreto',JSON.stringify(d)); }
-
-// ============================================================
 // DATE HELPERS
 // ============================================================
-function pad(n){ return String(n).padStart(2,'0'); }
-function today(){ const d=new Date(); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
-function dateKey(d){ return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
-function daysBetween(a,b){ return Math.round((b-a)/86400000); }
-function parseDate(k){ const[y,m,d]=k.split('-').map(Number); return new Date(y,m-1,d); }
-function getWeekMon(offset){
+function pad(n) { return String(n).padStart(2,'0'); }
+function today() { const d=new Date(); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
+function dateKey(d) { return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
+function daysBetween(a,b) { return Math.round((b-a)/86400000); }
+function parseDate(k) { const[y,m,d]=k.split('-').map(Number); return new Date(y,m-1,d); }
+function getWeekMon(offset) {
   const n=new Date(); const dow=n.getDay();
   const m=new Date(n); m.setDate(n.getDate()-(dow===0?6:dow-1)+(offset||0)*7); m.setHours(0,0,0,0); return m;
 }
-function getWeekNum(d){
+function getWeekNum(d) {
   const dt=new Date(d); dt.setHours(0,0,0,0);
   dt.setDate(dt.getDate()+3-(dt.getDay()+6)%7);
   const w1=new Date(dt.getFullYear(),0,4);
@@ -403,24 +491,20 @@ function getWeekNum(d){
 }
 
 // ============================================================
-// USER HELPERS
+// SAVE TO SUPABASE
 // ============================================================
-let currentUser=null;
-function other(){ return currentUser==='luz'?'fran':'luz'; }
-function getMe(){ return getS()[currentUser]||null; }
-function getOther(){ return getS()[other()]||null; }
-function getShared(){ return getS().shared||{}; }
+async function saveUser(userKey) {
+  await DB.set(userKey, appData[userKey]);
+}
+async function saveShared() {
+  await DB.set('shared', appData.shared);
+}
 
 // ============================================================
-// GOAL TYPE HELPERS
-// goal.type = 'daily' | 'weekly'
-// goal.weeklyTarget = number (only for weekly)
+// SCORING
 // ============================================================
-
-// For a weekly goal: how many times completed this week
-function weeklyCount(userData, goalIdx, weekMon){
-  const days=userData.days||{};
-  const now=new Date(); now.setHours(0,0,0,0);
+function weeklyCount(userData, goalIdx, weekMon) {
+  const days=userData.days||{}; const now=new Date(); now.setHours(0,0,0,0);
   let count=0;
   for(let i=0;i<7;i++){
     const d=new Date(weekMon); d.setDate(weekMon.getDate()+i);
@@ -431,81 +515,72 @@ function weeklyCount(userData, goalIdx, weekMon){
   return count;
 }
 
-// ============================================================
-// SCORING — two separate numbers
-// personalPct: raw checks / possible checks (daily=each day, weekly=per-week target)
-// verifiedPct: approved checks / possible (only daily goals get individual approval;
-//              weekly goals get day-level proof approval)
-// ============================================================
-function computeScores(userData){
+function computeScores(userData) {
   if(!userData||!userData.goals) return {personal:0,verified:0};
-  const goals=userData.goals;
-  const days=userData.days||{};
+  const goals=userData.goals; const days=userData.days||{};
   const now=new Date(); now.setHours(0,0,0,0);
+  let pDone=0,pTotal=0,vDone=0,vTotal=0;
+  const dailyIdxs=goals.map((g,i)=>({g,i})).filter(({g})=>g.type==='daily'||!g.type);
+  const weeklyIdxs=goals.map((g,i)=>({g,i})).filter(({g})=>g.type==='weekly');
 
-  let personalDone=0, personalTotal=0;
-  let verifiedDone=0, verifiedTotal=0;
-
-  // Daily goals: count each day
-  const dailyGoals=goals.map((g,i)=>({g,i})).filter(({g})=>g.type==='daily'||!g.type);
-  const weeklyGoals=goals.map((g,i)=>({g,i})).filter(({g})=>g.type==='weekly');
-
-  // Count days elapsed
   const d=new Date(START);
   while(d<=now&&d<=END){
     const k=dateKey(d); const dd=days[k]||{};
-    // Daily goals
-    dailyGoals.forEach(({g,i})=>{
-      personalTotal++;
-      verifiedTotal++;
+    dailyIdxs.forEach(({g,i})=>{
+      pTotal++; vTotal++;
       if(dd.checks&&dd.checks['goal_'+i]){
-        personalDone++;
-        if(dd.approvedByOther===true) verifiedDone++;
-        else if(dd.photo||dd.gps) verifiedDone+=0.5; // proof but not approved yet
+        pDone++;
+        if(dd.approvedByOther===true) vDone++;
+        else if(dd.photo||dd.gps) vDone+=0.5;
       }
     });
     d.setDate(d.getDate()+1);
   }
 
-  // Weekly goals: count per week
+  // Weekly goals: per-week
   const dw=new Date(START);
+  const seenWeeks=new Set();
   while(dw<=now&&dw<=END){
+    const mon=getWeekMon(0); // get relative
+    // iterate proper week starts
     const dow=dw.getDay();
-    if(dow===1||dateKey(dw)===dateKey(START)){ // start of week
-      const weekMon=new Date(dw);
-      weeklyGoals.forEach(({g,i})=>{
-        const target=g.weeklyTarget||1;
-        const count=weeklyCount(userData,i,weekMon);
-        const achieved=Math.min(count,target);
-        personalTotal+=target;
-        personalDone+=achieved;
-        verifiedTotal+=target;
-        // verified: each weekly check with proof counts, approved counts more
-        for(let di=0;di<7;di++){
-          const dd2=new Date(weekMon); dd2.setDate(weekMon.getDate()+di);
-          if(dd2<START||dd2>now||dd2>END) continue;
-          const dd=days[dateKey(dd2)]||{};
-          if(dd.checks&&dd.checks['goal_'+i]){
-            if(dd.approvedByOther===true) verifiedDone+=Math.min(1,1);
-            else if(dd.photo||dd.gps) verifiedDone+=0.5;
+    if(dow===1||dateKey(dw)===dateKey(START)){
+      const wMon=new Date(dw);
+      const wKey=dateKey(wMon);
+      if(!seenWeeks.has(wKey)){
+        seenWeeks.add(wKey);
+        weeklyIdxs.forEach(({g,i})=>{
+          const target=g.weeklyTarget||1;
+          const count=weeklyCount(userData,i,wMon);
+          pTotal+=target; pDone+=Math.min(count,target);
+          vTotal+=target;
+          // verified: count days with proof/approval
+          let wvDone=0;
+          for(let di=0;di<7;di++){
+            const dd2=new Date(wMon); dd2.setDate(wMon.getDate()+di);
+            if(dd2<START||dd2>now||dd2>END) continue;
+            const ddd=days[dateKey(dd2)]||{};
+            if(ddd.checks&&ddd.checks['goal_'+i]){
+              if(ddd.approvedByOther===true) wvDone++;
+              else if(ddd.photo||ddd.gps) wvDone+=0.5;
+            }
           }
-        }
-        verifiedDone=Math.min(verifiedDone,verifiedTotal); // cap
-      });
+          vDone+=Math.min(wvDone,target);
+        });
+      }
     }
     dw.setDate(dw.getDate()+1);
   }
 
-  const personal=personalTotal?Math.round(personalDone/personalTotal*100):0;
-  const verified=verifiedTotal?Math.round(Math.min(verifiedDone,verifiedTotal)/verifiedTotal*100):0;
-  return {personal,verified};
+  return {
+    personal: pTotal?Math.round(pDone/pTotal*100):0,
+    verified: vTotal?Math.round(Math.min(vDone,vTotal)/vTotal*100):0
+  };
 }
 
-// Week-level scores for summary
-function weekScores(userData, weekMon){
+function weekScores(userData, weekMon) {
   if(!userData||!userData.goals) return {personal:0,verified:0,goalData:[]};
-  const goals=userData.goals;
-  const days=userData.days||{};
+  const goals=userData.goals; const days=userData.days||{};
   const now=new Date(); now.setHours(0,0,0,0);
   let pDone=0,pTotal=0,vDone=0,vTotal=0;
   const goalData=goals.map((g,i)=>{
@@ -526,7 +601,6 @@ function weekScores(userData, weekMon){
     pDone+=gPDone; pTotal+=gPTotal;
     return {goal:g,idx:i,done:gPDone,total:gPTotal,pct:gPTotal?Math.round(gPDone/gPTotal*100):0};
   });
-  // verified
   for(let di=0;di<7;di++){
     const d=new Date(weekMon); d.setDate(weekMon.getDate()+di);
     if(d<START||d>END||d>now) continue;
@@ -546,23 +620,18 @@ function weekScores(userData, weekMon){
   };
 }
 
-function streakCount(userData){
+function streakCount(userData) {
   if(!userData||!userData.goals) return 0;
-  const goals=userData.goals;
-  const days=userData.days||{};
-  // streak = consecutive days where all daily goals are done
-  // (weekly goals don't break streak)
-  const dailyIdxs=goals.map((g,i)=>({g,i})).filter(({g})=>g.type==='daily'||!g.type).map(({i})=>i);
+  const goals=userData.goals; const days=userData.days||{};
+  const dailyIdxs=goals.map((g,i)=>i).filter(i=>goals[i].type==='daily'||!goals[i].type);
   if(!dailyIdxs.length) return 0;
-  let streak=0;
-  const d=new Date(); d.setHours(0,0,0,0);
+  let streak=0; const d=new Date(); d.setHours(0,0,0,0);
   while(true){
     const k=dateKey(d); const dd=days[k];
-    if(!dd){ break; }
+    if(!dd) break;
     const allDone=dailyIdxs.every(i=>dd.checks&&dd.checks['goal_'+i]);
     if(!allDone) break;
-    streak++;
-    d.setDate(d.getDate()-1);
+    streak++; d.setDate(d.getDate()-1);
     if(d<START) break;
   }
   return streak;
@@ -573,18 +642,10 @@ function streakCount(userData){
 // ============================================================
 let obName=null, goalCount=0;
 
-function initOnboarding(){
-  const s=getS();
-  if(s._currentUser&&s[s._currentUser]){ currentUser=s._currentUser; initApp(); return; }
-  showScreen('screen-ob');
-  addGoalInput(); addGoalInput(); addGoalInput();
-}
-
 function selectName(name,el){
   obName=name;
   document.querySelectorAll('.name-btn').forEach(b=>b.classList.remove('sel'));
-  el.classList.add('sel');
-  validateOb();
+  el.classList.add('sel'); validateOb();
 }
 
 function addGoalInput(){
@@ -597,7 +658,7 @@ function addGoalInput(){
     <div class="goal-type-row">
       <button class="goal-type-btn sel-daily" id="gt-daily-${idx}" onclick="setGoalType(${idx},'daily')">📅 Diario</button>
       <button class="goal-type-btn" id="gt-weekly-${idx}" onclick="setGoalType(${idx},'weekly')">📆 Semanal</button>
-      <input type="number" id="gt-target-${idx}" min="1" max="7" value="4" style="width:48px;background:var(--bg3);border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:12px;padding:5px 7px;display:none;font-family:inherit" placeholder="veces">
+      <input type="number" id="gt-target-${idx}" min="1" max="7" value="4" style="width:48px;background:var(--bg3);border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:12px;padding:5px 7px;display:none;font-family:inherit">
     </div>
   </div>
   <button class="goal-del" onclick="removeGoalInput(${idx})">−</button>`;
@@ -607,24 +668,16 @@ function addGoalInput(){
 }
 
 function setGoalType(idx,type){
-  const dailyBtn=document.getElementById('gt-daily-'+idx);
-  const weeklyBtn=document.getElementById('gt-weekly-'+idx);
-  const targetInput=document.getElementById('gt-target-'+idx);
-  if(type==='daily'){
-    dailyBtn.className='goal-type-btn sel-daily';
-    weeklyBtn.className='goal-type-btn';
-    targetInput.style.display='none';
-  } else {
-    weeklyBtn.className='goal-type-btn sel-weekly';
-    dailyBtn.className='goal-type-btn';
-    targetInput.style.display='block';
-  }
+  const db=document.getElementById('gt-daily-'+idx);
+  const wb=document.getElementById('gt-weekly-'+idx);
+  const ti=document.getElementById('gt-target-'+idx);
+  if(type==='daily'){ db.className='goal-type-btn sel-daily'; wb.className='goal-type-btn'; ti.style.display='none'; }
+  else { wb.className='goal-type-btn sel-weekly'; db.className='goal-type-btn'; ti.style.display='block'; }
 }
 
 function removeGoalInput(idx){
-  const row=document.getElementById('goal-row-'+idx);
-  if(row) row.remove();
-  document.getElementById('add-goal-btn').style.display=goalCount>=5?'none':'block';
+  document.getElementById('goal-row-'+idx)?.remove();
+  document.getElementById('add-goal-btn').style.display='block';
   validateOb();
 }
 
@@ -634,11 +687,10 @@ function getGoalsFromForm(){
     const inp=document.getElementById('gi-'+i);
     if(!inp||!inp.closest('.goal-row')) continue;
     const name=inp.value.trim(); if(!name) continue;
-    const weeklyBtn=document.getElementById('gt-weekly-'+i);
-    const isWeekly=weeklyBtn&&weeklyBtn.classList.contains('sel-weekly');
-    const targetInp=document.getElementById('gt-target-'+i);
-    const target=isWeekly?parseInt(targetInp?.value||4):null;
-    goals.push({name,type:isWeekly?'weekly':'daily',weeklyTarget:target});
+    const wb=document.getElementById('gt-weekly-'+i);
+    const isWeekly=wb&&wb.classList.contains('sel-weekly');
+    const ti=document.getElementById('gt-target-'+i);
+    goals.push({name,type:isWeekly?'weekly':'daily',weeklyTarget:isWeekly?parseInt(ti?.value||4):null});
   }
   return goals;
 }
@@ -648,32 +700,101 @@ function validateOb(){
   document.getElementById('ob-confirm').disabled=!obName||goals.length<2;
 }
 
-function confirmOnboarding(){
+async function confirmOnboarding(){
   const goals=getGoalsFromForm();
   const prize=document.getElementById('prize-input').value.trim()||'Un plan chulo juntos';
   if(!obName||goals.length<2) return;
-  const s=getS();
-  s[obName]={name:obName==='luz'?'Luz':'Fran',goals,days:{},weeklyReviews:{}};
-  s.shared={prize,startDate:'2026-06-28',endDate:'2026-09-25'};
-  s._currentUser=obName;
-  setS(s); currentUser=obName; initApp();
+  document.getElementById('ob-confirm').disabled=true;
+  document.getElementById('ob-confirm').textContent='Guardando...';
+
+  appData[obName]={name:obName==='luz'?'Luz':'Fran',goals,days:{},weeklyReviews:{}};
+  if(!appData.shared) appData.shared={prize,startDate:'2026-06-28',endDate:'2026-09-25'};
+  else appData.shared.prize=prize;
+
+  await saveUser(obName);
+  await saveShared();
+  localStorage.setItem('elreto_user', obName);
+  currentUser=obName;
+  initApp();
 }
 
 // ============================================================
-// APP INIT
+// SCREENS
 // ============================================================
 function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));
   document.getElementById(id).classList.add('on');
 }
 
+// ============================================================
+// BOOT — load from Supabase, then decide what to show
+// ============================================================
+async function boot(){
+  showScreen('screen-loading');
+
+  // Load all data from Supabase
+  const [luz, fran, shared] = await Promise.all([
+    DB.get('luz'), DB.get('fran'), DB.get('shared')
+  ]);
+  appData.luz = luz; appData.fran = fran; appData.shared = shared;
+
+  // Subscribe to realtime changes
+  DB.subscribe(async (msg) => {
+    const newData = await DB.get('luz');
+    const newFran = await DB.get('fran');
+    const newShared = await DB.get('shared');
+    appData.luz = newData; appData.fran = newFran; appData.shared = newShared;
+    refreshCurrentPage();
+    renderBanners();
+    toast('🔄 Datos actualizados');
+  });
+
+  setSyncStatus(true);
+
+  // Who is logged in on this device?
+  const saved = localStorage.getItem('elreto_user');
+  if(saved && appData[saved]) {
+    currentUser = saved;
+    initApp();
+    return;
+  }
+
+  // Show onboarding — but pre-fill name if one user already exists
+  showScreen('screen-ob');
+  addGoalInput(); addGoalInput(); addGoalInput();
+
+  // Disable already-taken name
+  if(appData.luz) {
+    const btn=document.getElementById('btn-luz');
+    if(btn){ btn.style.opacity='.4'; btn.style.pointerEvents='none'; btn.querySelector('.nm').textContent='Luz (configurado)'; }
+  }
+  if(appData.fran) {
+    const btn=document.getElementById('btn-fran');
+    if(btn){ btn.style.opacity='.4'; btn.style.pointerEvents='none'; btn.querySelector('.nm').textContent='Fran (configurado)'; }
+  }
+  // If both exist, something's wrong — let them pick
+}
+
+// ============================================================
+// APP INIT
+// ============================================================
 function initApp(){
   showScreen('screen-app');
   const me=getMe(); if(!me) return;
   document.getElementById('topbar-name').textContent=me.name+' · El Reto';
   const dayNum=Math.max(1,daysBetween(START,new Date())+1);
   document.getElementById('topbar-sub').textContent=`Día ${Math.min(dayNum,90)} de ${TOTAL_DAYS}`;
+  // Hide sync banner after 3s
+  setTimeout(()=>{ document.getElementById('banner-sync').classList.remove('show'); },3000);
   renderBanners(); renderHoy(); renderValidar(); checkPrize();
+}
+
+let currentPage='hoy';
+function refreshCurrentPage(){
+  if(currentPage==='hoy') renderHoy();
+  if(currentPage==='validar') renderValidar();
+  if(currentPage==='progreso') renderProgreso();
+  if(currentPage==='semana') renderSemana();
 }
 
 function renderBanners(){
@@ -695,8 +816,7 @@ function goPage(id,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
   document.getElementById('page-'+id).classList.add('on');
-  btn.classList.add('on');
-  window.scrollTo(0,0);
+  btn.classList.add('on'); currentPage=id; window.scrollTo(0,0);
   if(id==='hoy') renderHoy();
   if(id==='validar') renderValidar();
   if(id==='progreso') renderProgreso();
@@ -708,14 +828,12 @@ function goPage(id,btn){
 // ============================================================
 function renderHoy(){
   const me=getMe(); const oth=getOther(); if(!me) return;
-  const k=today(); const s=getS(); const dd=me.days[k]||{checks:{}};
+  const k=today(); const dd=me.days[k]||{checks:{}};
   const goals=me.goals;
   const scores=computeScores(me);
   const otherScores=oth?computeScores(oth):{personal:0,verified:0};
-  const streak=streakCount(me);
-  const otherStreak=oth?streakCount(oth):0;
+  const streak=streakCount(me); const otherStreak=oth?streakCount(oth):0;
 
-  // Score pills
   let html=`<div class="score-pair">
     <div class="score-pill">
       <div class="score-pill-num ${scores.personal>=80?'great':scores.personal>=50?'ok':'bad'}">${scores.personal}%</div>
@@ -729,18 +847,15 @@ function renderHoy(){
     </div>
   </div>`;
 
-  // Weekly targets section (for weekly goals)
+  // Weekly targets
   const weeklyGoals=goals.map((g,i)=>({g,i})).filter(({g})=>g.type==='weekly');
   if(weeklyGoals.length){
     const mon=getWeekMon(0);
     const monStr=mon.toLocaleDateString('es',{day:'numeric',month:'short'});
-    html+=`<div class="weekly-targets">
-      <div class="wt-title">Objetivos semanales <span class="wt-week-label">semana del ${monStr}</span></div>`;
+    html+=`<div class="weekly-targets"><div class="wt-title">Objetivos semanales <span class="wt-week-label">semana del ${monStr}</span></div>`;
     weeklyGoals.forEach(({g,i})=>{
-      const target=g.weeklyTarget||1;
-      const count=weeklyCount(me,i,mon);
-      const pct=Math.min(100,Math.round(count/target*100));
-      const done=count>=target;
+      const target=g.weeklyTarget||1; const count=weeklyCount(me,i,mon);
+      const pct=Math.min(100,Math.round(count/target*100)); const done=count>=target;
       html+=`<div>
         <div class="wt-goal-row">
           <span class="wt-goal-name">${g.name}</span>
@@ -749,7 +864,7 @@ function renderHoy(){
             <span class="wt-count ${done?'wt-done':''}">${count}<span style="font-size:11px;color:var(--muted);font-weight:400">/${target}</span></span>
             <button class="wt-btn" onclick="changeWeeklyCount('${k}',${i},1,event)">+</button>
           </div>
-          <span class="wt-target" style="color:${done?'var(--green)':'var(--muted)'}">${done?'✓ OK':'faltan '+(target-count)}</span>
+          <span class="wt-target" style="color:${done?'var(--green)':'var(--muted)'}">${done?'✓ OK':'−'+(target-count)}</span>
         </div>
         <div class="wt-progress-bar"><div class="wt-progress-fill ${done?'done':''}" style="width:${pct}%"></div></div>
       </div>`;
@@ -757,40 +872,34 @@ function renderHoy(){
     html+=`</div>`;
   }
 
-  // Daily goals
+  // Daily checks
   const dailyGoals=goals.map((g,i)=>({g,i})).filter(({g})=>g.type==='daily'||!g.type);
   if(dailyGoals.length){
     const currentWT=dd.workoutType||'';
     html+=`<div class="sec"><div class="sec-title">Checks diarios</div><div class="card">`;
-    // Workout type chips
     html+=`<div class="wchips">`;
-    WT_CHIPS.forEach(c=>{
-      html+=`<span class="wchip${currentWT===c?' on':''}" onclick="setWT('${k}','${c}')">${c}</span>`;
-    });
-    html+=`</div>
-    <div class="custom-wt">
+    WT_CHIPS.forEach(c=>{ html+=`<span class="wchip${currentWT===c?' on':''}" onclick="setWT('${k}','${c}')">${c}</span>`; });
+    html+=`</div><div class="custom-wt">
       <input type="text" id="cwt" placeholder="Otro entrenamiento..." value="${currentWT&&!WT_CHIPS.includes(currentWT)?currentWT:''}">
       <button onclick="setCustomWT('${k}')">OK</button>
     </div>`;
 
     dailyGoals.forEach(({g,i})=>{
       const isDone=!!(dd.checks&&dd.checks['goal_'+i]);
-      const hasPhoto=!!dd.photo;
-      const hasGPS=!!dd.gps;
+      const hasPhoto=!!dd.photo; const hasGPS=!!dd.gps;
       const isApproved=dd.approvedByOther===true;
       let badges=`<span class="badge b-daily">diario</span>`;
       if(isApproved) badges+=`<span class="badge b-approved">⭐ verificado</span>`;
       else if(hasPhoto&&isDone) badges+=`<span class="badge b-photo">📸 con prueba</span>`;
       else if(hasGPS&&isDone) badges+=`<span class="badge b-gps">📍 ubicación</span>`;
       else if(isDone) badges+=`<span class="badge b-unverified">sin verificar</span>`;
-
       html+=`<div class="check-item row-sep${isDone?' done':''}" onclick="toggleGoal('${k}',${i})">
         <div class="chk-box">${isDone?chkSvg():''}</div>
         <div class="chk-content">
           <div class="chk-main">${g.name}</div>
           <div class="chk-badges">${badges}</div>
           <div class="chk-actions">
-            <button class="chk-btn${hasPhoto?' done-proof':''}" onclick="event.stopPropagation();uploadPhoto('${k}')">${hasPhoto?'📸 foto añadida':'📷 añadir foto'}</button>
+            <button class="chk-btn${hasPhoto?' done-proof':''}" onclick="event.stopPropagation();uploadPhoto('${k}')">${hasPhoto?'📸 añadida':'📷 añadir foto'}</button>
             <button class="chk-btn${hasGPS?' done-proof':''}" onclick="event.stopPropagation();captureGPS('${k}')">${hasGPS?'📍 '+dd.gps.lat.toFixed(3):'📍 ubicación'}</button>
           </div>
         </div>
@@ -799,7 +908,6 @@ function renderHoy(){
     html+=`</div></div>`;
   }
 
-  // Note
   const note=dd.note||'';
   html+=`<div class="sec"><div class="sec-title">Nota del día</div>
   <div class="card"><div class="note-area">
@@ -807,119 +915,106 @@ function renderHoy(){
     <button class="note-save" onclick="saveNote('${k}')">Guardar</button>
   </div></div></div>`;
 
-  // Other today
   if(oth){
-    const odd=oth.days[k]||{checks:{}};
+    const odd=oth.days?.[k]||{checks:{}};
     const oDailyGoals=oth.goals.filter(g=>g.type==='daily'||!g.type);
-    const oDailyDone=oDailyGoals.filter((_,ii)=>{
-      const realIdx=oth.goals.indexOf(oDailyGoals[ii]);
-      return odd.checks&&odd.checks['goal_'+realIdx];
-    }).length;
-    const oPct=oDailyGoals.length?Math.round(oDailyDone/oDailyGoals.length*100):0;
-    const oHasProof=odd.photo||odd.gps;
+    const oDone=oth.goals.reduce((acc,g,i)=>{
+      return acc+(((g.type==='daily'||!g.type)&&odd.checks?.['goal_'+i])?1:0);
+    },0);
+    const oPct=oDailyGoals.length?Math.round(oDone/oDailyGoals.length*100):0;
     html+=`<div class="other-today">
       <div class="ot-header">
         <div class="ot-name">${oth.name} hoy</div>
         <div class="ot-pcts">
-          <span class="ot-pct" style="background:rgba(196,56,32,.12);color:var(--acc)">${otherScores.personal}% personal</span>
-          <span class="ot-pct" style="background:rgba(232,160,32,.12);color:var(--gold)">${otherScores.verified}% verif.</span>
+          <span class="ot-pct" style="background:rgba(196,56,32,.12);color:var(--acc)">${otherScores.personal}%</span>
+          <span class="ot-pct" style="background:rgba(232,160,32,.12);color:var(--gold)">${otherScores.verified}%v</span>
         </div>
       </div>
       <div class="ot-prog"><div class="ot-fill" style="width:${oPct}%"></div></div>
       <div class="ot-detail">
-        Checks diarios: ${oDailyDone}/${oDailyGoals.length}${oHasProof?' · 📸 ha subido prueba':''}
+        Checks hoy: ${oDone}/${oDailyGoals.length}
+        ${odd.photo||odd.gps?' · 📸 ha subido prueba':''}
         ${odd.workoutType?` · ${odd.workoutType}`:''}
         ${otherStreak>0?` · ${otherStreak}🔥`:''}
       </div>
     </div>`;
   } else {
-    html+=`<div class="other-today"><div class="ot-detail">El otro usuario aún no ha configurado su perfil.</div></div>`;
+    html+=`<div class="other-today"><div class="ot-detail" style="color:var(--muted)">El otro usuario aún no ha configurado su perfil.</div></div>`;
   }
 
   document.getElementById('page-hoy').innerHTML=html;
   if(!document.getElementById('photo-input')){
-    const inp=document.createElement('input');
-    inp.type='file'; inp.accept='image/*'; inp.id='photo-input'; inp.style.display='none';
-    document.body.appendChild(inp);
+    const inp=document.createElement('input'); inp.type='file'; inp.accept='image/*';
+    inp.id='photo-input'; inp.style.display='none'; document.body.appendChild(inp);
   }
 }
 
 function chkSvg(){ return '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polyline points="2,7 6,11 12,3" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'; }
 
-function toggleGoal(k,idx){
-  const s=getS(); const u=s[currentUser];
-  if(!u.days[k]) u.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
-  u.days[k].checks['goal_'+idx]=!u.days[k].checks['goal_'+idx];
-  setS(s); renderHoy(); renderBanners();
+async function toggleGoal(k,idx){
+  const me=getMe(); if(!me) return;
+  if(!me.days[k]) me.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
+  me.days[k].checks['goal_'+idx]=!me.days[k].checks['goal_'+idx];
+  renderHoy(); renderBanners();
+  await saveUser(currentUser);
 }
 
-// weekly counter: change the count for a weekly goal on a given day
-// We store weekly goal completions as individual day checks too,
-// but we find which days this week are already checked and add/remove
-function changeWeeklyCount(k,goalIdx,delta,event){
+async function changeWeeklyCount(k,goalIdx,delta,event){
   event.stopPropagation();
-  const s=getS(); const u=s[currentUser];
-  const mon=getWeekMon(0);
-  const target=(u.goals[goalIdx]&&u.goals[goalIdx].weeklyTarget)||1;
-  const current=weeklyCount(u,goalIdx,mon);
+  const me=getMe(); if(!me) return;
+  const mon=getWeekMon(0); const target=(me.goals[goalIdx]?.weeklyTarget)||1;
+  const current=weeklyCount(me,goalIdx,mon);
   const newCount=Math.max(0,Math.min(target,current+delta));
-  if(newCount===current){ setS(s); renderHoy(); return; }
-
+  if(newCount===current){ renderHoy(); return; }
+  const now=new Date(); now.setHours(0,0,0,0);
   if(delta>0){
-    // Find first unchecked day this week (from today back)
-    const now=new Date(); now.setHours(0,0,0,0);
     for(let i=0;i<7;i++){
       const d=new Date(now); d.setDate(now.getDate()-i);
       if(d<mon||d<START||d>END) continue;
       const dk=dateKey(d);
-      if(!u.days[dk]) u.days[dk]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
-      if(!u.days[dk].checks['goal_'+goalIdx]){
-        u.days[dk].checks['goal_'+goalIdx]=true; break;
-      }
+      if(!me.days[dk]) me.days[dk]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
+      if(!me.days[dk].checks['goal_'+goalIdx]){ me.days[dk].checks['goal_'+goalIdx]=true; break; }
     }
   } else {
-    // Remove most recent check this week
-    const now=new Date(); now.setHours(0,0,0,0);
     for(let i=0;i<7;i++){
       const d=new Date(now); d.setDate(now.getDate()-i);
       if(d<mon||d<START||d>END) continue;
       const dk=dateKey(d);
-      if(u.days[dk]&&u.days[dk].checks['goal_'+goalIdx]){
-        u.days[dk].checks['goal_'+goalIdx]=false; break;
-      }
+      if(me.days[dk]?.checks?.['goal_'+goalIdx]){ me.days[dk].checks['goal_'+goalIdx]=false; break; }
     }
   }
-  setS(s); renderHoy(); renderBanners();
+  renderHoy(); renderBanners();
+  await saveUser(currentUser);
 }
 
-function setWT(k,wt){
-  const s=getS(); const u=s[currentUser];
-  if(!u.days[k]) u.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
-  u.days[k].workoutType=u.days[k].workoutType===wt?'':wt;
-  setS(s); renderHoy();
+async function setWT(k,wt){
+  const me=getMe(); if(!me) return;
+  if(!me.days[k]) me.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
+  me.days[k].workoutType=me.days[k].workoutType===wt?'':wt;
+  renderHoy(); await saveUser(currentUser);
 }
 
-function setCustomWT(k){
+async function setCustomWT(k){
   const val=document.getElementById('cwt')?.value.trim(); if(!val) return;
-  const s=getS(); const u=s[currentUser];
-  if(!u.days[k]) u.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
-  u.days[k].workoutType=val; setS(s); renderHoy();
+  const me=getMe(); if(!me) return;
+  if(!me.days[k]) me.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
+  me.days[k].workoutType=val; renderHoy(); await saveUser(currentUser);
 }
 
 let _photoKey=null;
 function uploadPhoto(k){
   _photoKey=k;
   const inp=document.getElementById('photo-input');
-  inp.onchange=function(){
+  inp.onchange=async function(){
     const file=inp.files[0]; if(!file) return;
-    try{ if(JSON.stringify(getS()).length>4*1024*1024){ toast('⚠️ Almacenamiento casi lleno'); return; }}catch(e){}
     const r=new FileReader();
-    r.onload=function(e){
-      const s=getS(); const u=s[currentUser];
-      if(!u.days[_photoKey]) u.days[_photoKey]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
-      u.days[_photoKey].photo=e.target.result;
-      u.days[_photoKey].photoTime=new Date().toISOString();
-      setS(s); renderHoy(); toast('📸 Foto guardada');
+    r.onload=async function(e){
+      const me=getMe(); if(!me) return;
+      if(!me.days[_photoKey]) me.days[_photoKey]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
+      me.days[_photoKey].photo=e.target.result;
+      me.days[_photoKey].photoTime=new Date().toISOString();
+      renderHoy(); toast('📸 Foto guardada');
+      await saveUser(currentUser);
     };
     r.readAsDataURL(file); inp.value='';
   };
@@ -929,19 +1024,21 @@ function uploadPhoto(k){
 function captureGPS(k){
   if(!navigator.geolocation){ toast('GPS no disponible'); return; }
   toast('Obteniendo ubicación...');
-  navigator.geolocation.getCurrentPosition(pos=>{
-    const s=getS(); const u=s[currentUser];
-    if(!u.days[k]) u.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
-    u.days[k].gps={lat:pos.coords.latitude,lng:pos.coords.longitude};
-    setS(s); renderHoy(); toast('📍 Ubicación guardada');
+  navigator.geolocation.getCurrentPosition(async pos=>{
+    const me=getMe(); if(!me) return;
+    if(!me.days[k]) me.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
+    me.days[k].gps={lat:pos.coords.latitude,lng:pos.coords.longitude};
+    renderHoy(); toast('📍 Ubicación guardada');
+    await saveUser(currentUser);
   },()=>toast('No se pudo obtener la ubicación'));
 }
 
-function saveNote(k){
+async function saveNote(k){
   const txt=document.getElementById('note-ta')?.value.trim();
-  const s=getS(); const u=s[currentUser];
-  if(!u.days[k]) u.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
-  u.days[k].note=txt||''; setS(s); toast('Nota guardada ✓');
+  const me=getMe(); if(!me) return;
+  if(!me.days[k]) me.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
+  me.days[k].note=txt||'';
+  toast('Nota guardada ✓'); await saveUser(currentUser);
 }
 
 // ============================================================
@@ -955,34 +1052,28 @@ function getPendingValidations(){
   const pending=[];
   Object.keys(days).forEach(k=>{
     const d=parseDate(k); if(d<cutoff||d>now) return;
-    const dd=days[k];
-    if(dd.approvedByOther) return;
-    // Only daily goals need individual validation
+    const dd=days[k]; if(dd.approvedByOther) return;
     goals.forEach((g,i)=>{
       if((g.type==='daily'||!g.type)&&dd.checks&&dd.checks['goal_'+i]){
         pending.push({dayKey:k,goalIdx:i,goal:g,dd,date:d});
       }
     });
-    // Weekly: if any weekly goal checked this day, add day-level validation
-    const hasWeekly=goals.some((g,i)=>g.type==='weekly'&&dd.checks&&dd.checks['goal_'+i]);
-    if(hasWeekly&&!pending.find(p=>p.dayKey===k&&p.isWeeklyDay)){
-      const weeklyOnDay=goals.map((g,i)=>({g,i})).filter(({g,i})=>g.type==='weekly'&&dd.checks&&dd.checks['goal_'+i]);
-      weeklyOnDay.forEach(({g,i})=>{
-        pending.push({dayKey:k,goalIdx:i,goal:g,dd,date:d,isWeekly:true});
-      });
-    }
+    goals.forEach((g,i)=>{
+      if(g.type==='weekly'&&dd.checks&&dd.checks['goal_'+i]&&!dd.approvedByOther){
+        if(!pending.find(p=>p.dayKey===k&&p.goalIdx===i)){
+          pending.push({dayKey:k,goalIdx:i,goal:g,dd,date:d,isWeekly:true});
+        }
+      }
+    });
   });
   return pending.sort((a,b)=>b.date-a.date);
 }
 
 function renderValidar(){
-  const oth=getOther();
-  const isSun=new Date().getDay()===0;
+  const oth=getOther(); const isSun=new Date().getDay()===0;
   let html='';
   if(isSun) html+=`<div class="sunday-banner"><div class="sun-icon">📋</div><div class="sun-text"><div class="sun-title">Es domingo</div><div class="sun-sub">Toca hacer la revisión semanal</div></div><button class="sun-btn" onclick="openWeeklyReview()">Revisar</button></div>`;
-
-  if(!oth){ html+=`<div class="empty-state">El otro usuario aún no ha configurado su perfil.</div>`; document.getElementById('page-validar').innerHTML=html; return; }
-
+  if(!oth){ html+=`<div class="empty-state">El otro usuario aún no ha configurado su perfil.<br><br>Cuando lo haga, sus checks aparecerán aquí.</div>`; document.getElementById('page-validar').innerHTML=html; return; }
   const pending=getPendingValidations();
   if(!pending.length){
     html+=`<div class="empty-state">✅ Todo validado<br><br>No hay checks pendientes de ${oth.name}.</div>`;
@@ -991,8 +1082,7 @@ function renderValidar(){
     pending.forEach(item=>{
       const{dayKey,goalIdx,goal,dd}=item;
       const dateStr=parseDate(dayKey).toLocaleDateString('es',{weekday:'short',day:'numeric',month:'short'});
-      const isApproved=dd.approvedByOther===true;
-      const isRejected=dd.approvedByOther==='rejected';
+      const isApproved=dd.approvedByOther===true; const isRejected=dd.approvedByOther==='rejected';
       html+=`<div class="val-item">
         <div class="val-hdr">
           <div class="val-info">
@@ -1007,7 +1097,7 @@ function renderValidar(){
           ${dd.photoTime?`<div class="val-time">📸 ${new Date(dd.photoTime).toLocaleString('es')}</div>`:''}
           ${!dd.photo&&!dd.gps?`<div class="val-note" style="color:var(--acc)">⚠️ Sin prueba adjunta</div>`:''}
         </div>
-        ${isApproved?`<div class="val-done-row" style="color:var(--gold)">⭐ Aprobado — cuenta para verificados</div>`:
+        ${isApproved?`<div class="val-done-row" style="color:var(--gold)">⭐ Aprobado</div>`:
           isRejected?`<div class="val-done-row" style="color:var(--acc)">✗ Rechazado</div>`:
           `<div class="val-actions">
             <button class="val-approve" onclick="validateCheck('${dayKey}',${goalIdx},true)">✓ Aprobar</button>
@@ -1019,17 +1109,19 @@ function renderValidar(){
   document.getElementById('page-validar').innerHTML=html;
 }
 
-function validateCheck(dayKey,goalIdx,approve){
-  const s=getS(); const u=s[other()];
-  if(!u||!u.days[dayKey]) return;
-  u.days[dayKey].approvedByOther=approve?true:'rejected';
-  setS(s); renderValidar(); renderBanners();
+async function validateCheck(dayKey,goalIdx,approve){
+  const oth=getOther(); if(!oth) return;
+  if(!oth.days[dayKey]) return;
+  oth.days[dayKey].approvedByOther=approve?true:'rejected';
+  appData[other()]=oth;
+  renderValidar(); renderBanners();
   toast(approve?'⭐ Aprobado — sube al % verificado':'Rechazado');
+  await saveUser(other());
 }
 
 function openLightboxSrc(dayKey){
   const oth=getOther(); if(!oth) return;
-  const dd=oth.days[dayKey]; if(!dd?.photo) return;
+  const dd=oth.days?.[dayKey]; if(!dd?.photo) return;
   document.getElementById('lightbox-img').src=dd.photo;
   document.getElementById('lightbox').classList.add('show');
 }
@@ -1040,10 +1132,9 @@ function closeLightbox(){ document.getElementById('lightbox').classList.remove('
 // ============================================================
 function openWeeklyReview(){
   const mon=getWeekMon(0); const me=getMe(); const oth=getOther();
-  const mySc=weekScores(me,mon);
-  const othSc=oth?weekScores(oth,mon):{personal:0,verified:0};
-  const inner=document.getElementById('review-inner');
-  inner.innerHTML=`<div class="review-title">Revisión semanal 📋</div>
+  const mySc=weekScores(me,mon); const othSc=oth?weekScores(oth,mon):{personal:0,verified:0};
+  document.getElementById('review-inner').innerHTML=`
+    <div class="review-title">Revisión semanal 📋</div>
     <div class="review-sub">Semana del ${mon.toLocaleDateString('es',{day:'numeric',month:'long'})}</div>
     <div class="review-duo">
       <div class="review-col">
@@ -1059,19 +1150,20 @@ function openWeeklyReview(){
         <div class="review-col-vlabel">verificado</div>
       </div>
     </div>
-    <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px">Revisad juntos antes de confirmar. Una vez confirmado queda bloqueado.</p>
+    <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px">Revisad juntos antes de confirmar.</p>
     <button class="review-confirm" onclick="confirmWeeklyReview(${mon.getTime()})">Confirmar revisión ✓</button>
     <button class="review-skip" onclick="closeWeeklyReview()">Ahora no</button>`;
   document.getElementById('review-modal').classList.add('show');
 }
 
-function confirmWeeklyReview(monTs){
-  const mon=new Date(monTs); const s=getS(); const u=s[currentUser];
+async function confirmWeeklyReview(monTs){
+  const mon=new Date(monTs); const me=getMe();
   const wk=`${mon.getFullYear()}-W${getWeekNum(mon)}`;
-  if(!u.weeklyReviews) u.weeklyReviews={};
-  const sc=weekScores(u,mon);
-  u.weeklyReviews[wk]={personal:sc.personal,verified:sc.verified,reviewedAt:new Date().toISOString()};
-  setS(s); closeWeeklyReview(); toast('Revisión guardada ✓');
+  if(!me.weeklyReviews) me.weeklyReviews={};
+  const sc=weekScores(me,mon);
+  me.weeklyReviews[wk]={personal:sc.personal,verified:sc.verified,reviewedAt:new Date().toISOString()};
+  closeWeeklyReview(); toast('Revisión guardada ✓');
+  await saveUser(currentUser);
 }
 function closeWeeklyReview(){ document.getElementById('review-modal').classList.remove('show'); }
 
@@ -1080,122 +1172,81 @@ function closeWeeklyReview(){ document.getElementById('review-modal').classList.
 // ============================================================
 function renderProgreso(){
   const me=getMe(); const oth=getOther(); if(!me) return;
-  const mySc=computeScores(me);
-  const othSc=oth?computeScores(oth):{personal:0,verified:0};
-  const myStreak=streakCount(me); const othStreak=oth?streakCount(oth):0;
-
+  const mySc=computeScores(me); const othSc=oth?computeScores(oth):{personal:0,verified:0};
+  const myStr=streakCount(me); const othStr=oth?streakCount(oth):0;
   let html=`<div class="prog-duo">`;
-  [[me,mySc,myStreak],[oth,othSc,othStreak]].forEach(([u,sc,str])=>{
+  [[me,mySc,myStr],[oth,othSc,othStr]].forEach(([u,sc,str])=>{
     if(!u){ html+=`<div class="prog-col"><div class="prog-col-name">El otro</div><div style="color:var(--muted);font-size:13px;margin-top:8px">Sin datos</div></div>`; return; }
     html+=`<div class="prog-col">
       <div class="prog-col-name">${u.name}</div>
-      <div class="prog-score-row">
-        <div>
-          <div class="prog-personal ${sc.personal>=80?'great':sc.personal>=50?'ok':'bad'}">${sc.personal}%</div>
-          <div style="font-size:10px;color:var(--muted);margin-top:2px">personal</div>
-        </div>
-        <div style="margin-left:8px">
-          <div class="prog-verified" style="font-size:18px">${sc.verified}%</div>
-          <div class="prog-verified-label">verificado</div>
-        </div>
+      <div style="display:flex;gap:8px;align-items:flex-end;margin-bottom:8px">
+        <div><div class="prog-personal ${sc.personal>=80?'great':sc.personal>=50?'ok':'bad'}">${sc.personal}%</div><div style="font-size:10px;color:var(--muted)">personal</div></div>
+        <div style="margin-left:4px"><div class="prog-verified">${sc.verified}%</div><div class="prog-verified-label">verificado</div></div>
       </div>
-      <div class="prog-bar"><div class="prog-fill fill-personal" style="width:${sc.personal}%"></div></div>
-      <div class="prog-bar" style="margin-bottom:6px"><div class="prog-fill fill-verified" style="width:${sc.verified}%;background:var(--gold)"></div></div>
-      <div style="font-size:10px;color:var(--muted)">${str}🔥 racha</div>
-      <div class="prog-week-bars">
-        ${[3,2,1,0].map(w=>{
-          const mon=getWeekMon(-w); if(mon<START) return '';
-          const wsc=weekScores(u,mon);
-          return `<div class="pwb-row">
-            <div class="pwb-label"><span>${w===0?'esta':'hace '+w+'s'}</span><span>${wsc.personal}% / <span style="color:var(--gold)">${wsc.verified}%v</span></span></div>
-            <div class="prog-bar"><div class="prog-fill fill-personal" style="width:${wsc.personal}%"></div></div>
-          </div>`;
-        }).join('')}
-      </div>
+      <div class="prog-bar"><div class="prog-fill" style="width:${sc.personal}%;background:var(--acc)"></div></div>
+      <div class="prog-bar" style="margin-bottom:6px"><div class="prog-fill" style="width:${sc.verified}%;background:var(--gold)"></div></div>
+      <div style="font-size:10px;color:var(--muted);margin-bottom:8px">${str}🔥 racha</div>
+      <div class="prog-week-bars">${[3,2,1,0].map(w=>{
+        const mon=getWeekMon(-w); if(mon<START) return '';
+        const wsc=weekScores(u,mon);
+        return `<div class="pwb-row"><div class="pwb-label"><span>${w===0?'esta':'−'+w+'s'}</span><span>${wsc.personal}% <span style="color:var(--gold)">${wsc.verified}%v</span></span></div><div class="prog-bar"><div class="prog-fill" style="width:${wsc.personal}%;background:var(--acc)"></div></div></div>`;
+      }).join('')}</div>
     </div>`;
   });
   html+=`</div>`;
 
-  // Goal breakdown
   html+=`<div class="sec"><div class="sec-title">Por objetivo</div><div class="card">`;
   me.goals.forEach((g,i)=>{
     const pct=goalRate(me,i);
-    const typeLabel=g.type==='weekly'?`semanal (${g.weeklyTarget}x)`:'diario';
     html+=`<div class="row-sep" style="padding:11px 14px">
       <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;gap:8px">
-        <span style="flex:1">${g.name} <span style="font-size:10px;color:var(--muted)">${typeLabel}</span></span>
+        <span style="flex:1">${g.name} <span style="font-size:10px;color:var(--muted)">${g.type==='weekly'?`sem. ${g.weeklyTarget}x`:'diario'}</span></span>
         <span style="font-weight:700;color:var(--acc)">${pct}%</span>
       </div>
-      <div class="prog-bar"><div class="prog-fill fill-personal" style="width:${pct}%"></div></div>
+      <div class="prog-bar"><div class="prog-fill" style="width:${pct}%;background:var(--acc)"></div></div>
     </div>`;
   });
   html+=`</div></div>`;
 
-  // Prize
   const shared=getShared();
   const both=mySc.personal>=80&&othSc.personal>=80;
   html+=`<div class="prize-section"><div class="prize-body">
     <div class="prize-icon">${both?'🎉':'🔒'}</div>
     <div class="prize-title">${both?'¡Premio desbloqueado!':'Premio bloqueado'}</div>
-    <div class="prize-sub">${both?'Los dos al 80%+. ¡Hora de hacer el plan!':'Los dos necesitáis llegar al 80% personal para desbloquear el plan.'}</div>
-    <div class="prize-prog-row">
-      <span class="prize-prog-name">${me.name}</span>
-      <div class="prize-prog-bar"><div class="prize-prog-fill" style="width:${Math.min(100,mySc.personal)}%;background:${mySc.personal>=80?'var(--green)':'var(--acc)'}"></div></div>
-      <span class="prize-prog-pct" style="color:${mySc.personal>=80?'var(--green)':'var(--acc)'}">${mySc.personal}%</span>
-    </div>
-    ${oth?`<div class="prize-prog-row">
-      <span class="prize-prog-name">${oth.name}</span>
-      <div class="prize-prog-bar"><div class="prize-prog-fill" style="width:${Math.min(100,othSc.personal)}%;background:${othSc.personal>=80?'var(--green)':'var(--gold)'}"></div></div>
-      <span class="prize-prog-pct" style="color:${othSc.personal>=80?'var(--green)':'var(--gold)'}">${othSc.personal}%</span>
-    </div>`:''}
+    <div class="prize-sub">${both?'¡Los dos al 80%+! Hora de hacer el plan.':'Los dos necesitáis llegar al 80% personal.'}</div>
+    <div class="prize-prog-row"><span class="prize-prog-name">${me.name}</span><div class="prize-prog-bar"><div class="prize-prog-fill" style="width:${Math.min(100,mySc.personal)}%;background:${mySc.personal>=80?'var(--green)':'var(--acc)'}"></div></div><span class="prize-prog-pct" style="color:${mySc.personal>=80?'var(--green)':'var(--acc)'}">${mySc.personal}%</span></div>
+    ${oth?`<div class="prize-prog-row"><span class="prize-prog-name">${oth.name}</span><div class="prize-prog-bar"><div class="prize-prog-fill" style="width:${Math.min(100,othSc.personal)}%;background:${othSc.personal>=80?'var(--green)':'var(--gold)'}"></div></div><span class="prize-prog-pct" style="color:${othSc.personal>=80?'var(--green)':'var(--gold)'}">${othSc.personal}%</span></div>`:''}
     <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--muted)">Objetivo: 80% personal cada uno</div>
   </div></div>`;
 
-  // Galleries
   [me,oth].filter(Boolean).forEach(u=>{
     const photos=Object.entries(u.days||{}).filter(([,d])=>d.photo).sort((a,b)=>b[0].localeCompare(a[0])).slice(0,12);
     html+=`<div class="sec"><div class="sec-title">Fotos de ${u.name}</div>`;
-    html+=photos.length
-      ?`<div class="card"><div class="gallery-grid">${photos.map(([,d])=>`<img class="gallery-img" src="${d.photo}" onclick="openLightboxImg('${d.photo}')">`).join('')}</div></div>`
-      :`<div class="card" style="padding:14px;font-size:13px;color:var(--muted)">Sin fotos todavía</div>`;
+    html+=photos.length?`<div class="card"><div class="gallery-grid">${photos.map(([,d])=>`<img class="gallery-img" src="${d.photo}" onclick="openLightboxImg('${d.photo}')">`).join('')}</div></div>`:`<div class="card" style="padding:14px;font-size:13px;color:var(--muted)">Sin fotos todavía</div>`;
     html+=`</div>`;
   });
-
   document.getElementById('page-progreso').innerHTML=html;
 }
 
 function goalRate(userData,goalIdx){
   const g=userData.goals[goalIdx]; if(!g) return 0;
-  const days=userData.days||{};
-  const now=new Date(); now.setHours(0,0,0,0);
+  const days=userData.days||{}; const now=new Date(); now.setHours(0,0,0,0);
   if(g.type==='weekly'){
-    let done=0,total=0;
-    const d=new Date(START);
+    let done=0,total=0; const seen=new Set(); const d=new Date(START);
     while(d<=now&&d<=END){
-      if(d.getDay()===1||dateKey(d)===dateKey(START)){
-        const mon=new Date(d);
-        total+=g.weeklyTarget||1;
-        done+=Math.min(weeklyCount(userData,goalIdx,mon),g.weeklyTarget||1);
+      const dow=d.getDay();
+      if(dow===1||dateKey(d)===dateKey(START)){
+        const wk=dateKey(d); if(!seen.has(wk)){ seen.add(wk); total+=g.weeklyTarget||1; done+=Math.min(weeklyCount(userData,goalIdx,new Date(d)),g.weeklyTarget||1); }
       }
       d.setDate(d.getDate()+1);
     }
     return total?Math.round(done/total*100):0;
   }
-  let done=0,total=0;
-  const d=new Date(START);
-  while(d<=now&&d<=END){
-    total++;
-    const dd=days[dateKey(d)];
-    if(dd?.checks?.['goal_'+goalIdx]) done++;
-    d.setDate(d.getDate()+1);
-  }
+  let done=0,total=0; const d=new Date(START);
+  while(d<=now&&d<=END){ total++; if(days[dateKey(d)]?.checks?.['goal_'+goalIdx]) done++; d.setDate(d.getDate()+1); }
   return total?Math.round(done/total*100):0;
 }
-
-function openLightboxImg(src){
-  document.getElementById('lightbox-img').src=src;
-  document.getElementById('lightbox').classList.add('show');
-}
+function openLightboxImg(src){ document.getElementById('lightbox-img').src=src; document.getElementById('lightbox').classList.add('show'); }
 
 // ============================================================
 // SEMANA
@@ -1203,82 +1254,46 @@ function openLightboxImg(src){
 let semOffset=0;
 function renderSemana(){
   const me=getMe(); const oth=getOther(); if(!me) return;
-  const mon=getWeekMon(semOffset);
-  const sun=new Date(mon); sun.setDate(mon.getDate()+6);
-  const opts={day:'numeric',month:'short'};
-  const now=new Date(); now.setHours(0,0,0,0);
-  const isCurrent=semOffset===0;
-  const wk=`${mon.getFullYear()}-W${getWeekNum(mon)}`;
-  const locked=me.weeklyReviews?.[wk];
-
+  const mon=getWeekMon(semOffset); const sun=new Date(mon); sun.setDate(mon.getDate()+6);
+  const opts={day:'numeric',month:'short'}; const now=new Date(); now.setHours(0,0,0,0);
+  const wk=`${mon.getFullYear()}-W${getWeekNum(mon)}`; const locked=me.weeklyReviews?.[wk];
   let html=`<div class="week-nav">
     <button class="wn-btn" onclick="semOffset--;renderSemana()">‹</button>
     <div class="wn-label">${mon.toLocaleDateString('es',opts)} – ${sun.toLocaleDateString('es',opts)}</div>
     <button class="wn-btn" onclick="semOffset++;renderSemana()">›</button>
   </div>`;
-
   if(locked) html+=`<div class="locked-week">🔒 Revisada · Personal: ${locked.personal}% · Verificado: ${locked.verified}% · ${new Date(locked.reviewedAt).toLocaleDateString('es')}</div>`;
-
   [me,oth].forEach(u=>{
     if(!u){ html+=`<div class="week-summary" style="margin:10px 16px 0"><div style="padding:14px;font-size:13px;color:var(--muted)">El otro sin datos</div></div>`; return; }
-    const sc=weekScores(u,mon);
-    // Workout types this week
-    const wts=new Set();
-    for(let i=0;i<7;i++){
-      const d=new Date(mon); d.setDate(mon.getDate()+i);
-      if(d<START||d>END||d>now) continue;
-      const dd=u.days[dateKey(d)]; if(dd?.workoutType) wts.add(dd.workoutType);
-    }
+    const sc=weekScores(u,mon); const wts=new Set();
+    for(let i=0;i<7;i++){ const d=new Date(mon); d.setDate(mon.getDate()+i); if(d<START||d>END||d>now) continue; const dd=u.days?.[dateKey(d)]; if(dd?.workoutType) wts.add(dd.workoutType); }
     html+=`<div class="week-summary">
       <div class="ws-header">
-        <div class="ws-left"><h3>${u.name}</h3><p>${u===me?'Tú':'El otro'} · ${isCurrent?'en curso':'pasado'}</p></div>
+        <div class="ws-left"><h3>${u.name}</h3><p>${u===me?'Tú':'El otro'}</p></div>
         <div class="ws-scores">
-          <div class="ws-score-block">
-            <div class="ws-score-num ${sc.personal>=80?'great':sc.personal>=50?'ok':'bad'}">${sc.personal}%</div>
-            <div class="ws-score-label">personal</div>
-          </div>
-          <div class="ws-score-block">
-            <div class="ws-score-num" style="color:var(--gold)">${sc.verified}%</div>
-            <div class="ws-score-label">verificado</div>
-          </div>
+          <div class="ws-score-block"><div class="ws-score-num ${sc.personal>=80?'great':sc.personal>=50?'ok':'bad'}">${sc.personal}%</div><div class="ws-score-label">personal</div></div>
+          <div class="ws-score-block"><div class="ws-score-num" style="color:var(--gold)">${sc.verified}%</div><div class="ws-score-label">verificado</div></div>
         </div>
       </div>
-      <div class="ws-details">
-        ${sc.goalData.map(gd=>`<div class="ws-goal-row">
-          <span class="ws-goal-name">${gd.goal.name}</span>
-          <span class="badge ${gd.goal.type==='weekly'?'b-weekly':'b-daily'}" style="font-size:9px;flex-shrink:0">${gd.goal.type==='weekly'?'sem':'día'}</span>
-          <div class="ws-goal-bar"><div class="ws-goal-fill" style="width:${gd.pct}%;background:${gd.pct>=80?'var(--green)':gd.pct>=50?'var(--gold)':'var(--acc)'}"></div></div>
-          <span class="ws-goal-pct" style="color:${gd.pct>=80?'var(--green)':gd.pct>=50?'var(--gold)':'var(--acc)'}">${gd.pct}%</span>
-        </div>`).join('')}
-      </div>
+      <div class="ws-details">${sc.goalData.map(gd=>`<div class="ws-goal-row">
+        <span class="ws-goal-name">${gd.goal.name}</span>
+        <span class="badge ${gd.goal.type==='weekly'?'b-weekly':'b-daily'}" style="font-size:9px;flex-shrink:0">${gd.goal.type==='weekly'?'sem':'día'}</span>
+        <div class="ws-goal-bar"><div class="ws-goal-fill" style="width:${gd.pct}%;background:${gd.pct>=80?'var(--green)':gd.pct>=50?'var(--gold)':'var(--acc)'}"></div></div>
+        <span class="ws-goal-pct" style="color:${gd.pct>=80?'var(--green)':gd.pct>=50?'var(--gold)':'var(--acc)'}">${gd.pct}%</span>
+      </div>`).join('')}</div>
       ${wts.size?`<div class="ws-wts">${[...wts].map(w=>`<span class="ws-wt-chip">${w}</span>`).join('')}</div>`:''}
     </div>`;
   });
-
-  // Validation status
   if(oth){
     let approved=0,pending=0;
     for(let i=0;i<7;i++){
-      const d=new Date(mon); d.setDate(mon.getDate()+i);
-      if(d<START||d>END||d>now) continue;
+      const d=new Date(mon); d.setDate(mon.getDate()+i); if(d<START||d>END||d>now) continue;
       const dd=oth.days?.[dateKey(d)]; if(!dd) continue;
-      oth.goals.forEach((g,gi)=>{
-        if((g.type==='daily'||!g.type)&&dd.checks?.['goal_'+gi]){
-          if(dd.approvedByOther===true) approved++;
-          else pending++;
-        }
-      });
+      oth.goals.forEach((g,gi)=>{ if((g.type==='daily'||!g.type)&&dd.checks?.['goal_'+gi]){ if(dd.approvedByOther===true) approved++; else pending++; } });
     }
-    html+=`<div class="val-status">
-      <span style="color:var(--muted)">Checks de ${oth.name} validados</span>
-      <span style="font-weight:700;color:var(--gold)">${approved}✓ · ${pending} pendientes</span>
-    </div>`;
+    html+=`<div class="val-status"><span style="color:var(--muted)">Validados de ${oth.name}</span><span style="font-weight:700;color:var(--gold)">${approved}✓ · ${pending} pendientes</span></div>`;
   }
-
-  if(isCurrent&&!locked&&new Date().getDay()===0){
-    html+=`<div style="margin:12px 16px 0"><button style="width:100%;background:var(--gold);color:#0f0f14;border:none;border-radius:var(--rad);padding:14px;font-size:14px;font-weight:700;cursor:pointer" onclick="openWeeklyReview()">📋 Hacer revisión semanal</button></div>`;
-  }
-
+  if(semOffset===0&&!locked&&new Date().getDay()===0) html+=`<div style="margin:12px 16px 0"><button style="width:100%;background:var(--gold);color:#0f0f14;border:none;border-radius:var(--rad);padding:14px;font-size:14px;font-weight:700;cursor:pointer" onclick="openWeeklyReview()">📋 Hacer revisión semanal</button></div>`;
   document.getElementById('page-semana').innerHTML=html;
 }
 
@@ -1290,31 +1305,26 @@ function checkPrize(){
   if(daysBetween(START,new Date())<60) return;
   const mySc=computeScores(me); const othSc=computeScores(oth);
   if(mySc.personal>=80&&othSc.personal>=80){
-    const s=getS();
-    if(!s._prizeShown){ s._prizeShown=true; setS(s); showPrize(); }
+    if(!localStorage.getItem('elreto_prize_shown')){ localStorage.setItem('elreto_prize_shown','1'); showPrize(); }
   }
 }
-
 function showPrize(){
-  const shared=getShared();
-  document.getElementById('prize-name-display').textContent=shared.prize||'Un plan chulo juntos';
-  document.getElementById('prize-overlay').classList.add('show');
-  launchConfetti();
+  document.getElementById('prize-name-display').textContent=getShared().prize||'Un plan chulo juntos';
+  document.getElementById('prize-overlay').classList.add('show'); launchConfetti();
 }
 function closePrize(){ document.getElementById('prize-overlay').classList.remove('show'); }
 function sharePrize(){
   const s=getShared(); const me=getMe(); const oth=getOther();
-  const msg=`🎉 ¡Lo conseguimos! ${me?.name} y ${oth?.name} hemos completado El Reto de 90 días. Premio: ${s.prize||'un plan chulo juntos'} 💪`;
-  if(navigator.clipboard) navigator.clipboard.writeText(msg).then(()=>toast('Copiado 🎊'));
-  else toast(msg.slice(0,60)+'...');
+  const msg=`🎉 ¡Lo conseguimos! ${me?.name} y ${oth?.name} hemos completado El Reto de 90 días. Premio: ${s.prize||'un plan chulo'} 💪`;
+  if(navigator.clipboard) navigator.clipboard.writeText(msg).then(()=>toast('Copiado 🎊')); else toast('¡Lo conseguisteis!');
 }
 function launchConfetti(){
   const wrap=document.getElementById('confetti-wrap'); wrap.innerHTML='';
   const colors=['#c43820','#e8a020','#4caf76','#5a9ff0','#f0ead6'];
   for(let i=0;i<80;i++){
     const el=document.createElement('div'); el.className='confetti-piece';
-    const size=6+Math.random()*8;
-    el.style.cssText=`left:${Math.random()*100}%;top:-20px;width:${size}px;height:${size}px;background:${colors[i%colors.length]};border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*2}s`;
+    const sz=6+Math.random()*8;
+    el.style.cssText=`left:${Math.random()*100}%;top:-20px;width:${sz}px;height:${sz}px;background:${colors[i%colors.length]};border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*2}s`;
     wrap.appendChild(el);
   }
   setTimeout(()=>wrap.innerHTML='',6000);
@@ -1326,21 +1336,37 @@ function launchConfetti(){
 function showSettings(){ document.getElementById('settings-modal').classList.add('show'); }
 function hideSettings(){ document.getElementById('settings-modal').classList.remove('show'); }
 function switchUser(){
-  hideSettings();
-  const s=getS(); const oth=other();
-  if(s[oth]){
-    s._currentUser=oth; setS(s); currentUser=oth; initApp(); toast('Usuario: '+s[oth].name);
-  } else {
-    const s2=getS(); delete s2._currentUser; setS(s2);
-    currentUser=null; obName=null; goalCount=0;
-    document.getElementById('goal-list').innerHTML='';
-    document.querySelectorAll('.name-btn').forEach(b=>b.classList.remove('sel'));
-    showScreen('screen-ob');
+  hideSettings(); localStorage.removeItem('elreto_user'); currentUser=null;
+  obName=null; goalCount=0;
+  document.getElementById('goal-list').innerHTML='';
+  document.querySelectorAll('.name-btn').forEach(b=>{ b.classList.remove('sel'); b.style.opacity=''; b.style.pointerEvents=''; });
+  // Re-disable taken names
+  if(appData.luz){ const b=document.getElementById('btn-luz'); if(b){ b.style.opacity='.4'; b.style.pointerEvents='none'; b.querySelector('.nm').textContent='Luz (configurado)'; }}
+  if(appData.fran){ const b=document.getElementById('btn-fran'); if(b){ b.style.opacity='.4'; b.style.pointerEvents='none'; b.querySelector('.nm').textContent='Fran (configurado)'; }}
+  showScreen('screen-ob');
+  // Add goals for the other user
+  const oth=appData.luz&&!appData.fran?'fran':appData.fran&&!appData.luz?'luz':null;
+  if(!oth){ addGoalInput(); addGoalInput(); addGoalInput(); }
+  else {
+    // The user switching to set up their profile
+    const names=['luz','fran'];
+    const available=names.find(n=>!appData[n]);
+    if(available){ const btn=document.getElementById('btn-'+available); if(btn){ btn.style.opacity=''; btn.style.pointerEvents=''; btn.querySelector('.nm').textContent=available.charAt(0).toUpperCase()+available.slice(1); }}
     addGoalInput(); addGoalInput(); addGoalInput();
-    toast('Configura el perfil del otro');
   }
 }
-function resetAll(){ if(confirm('¿Resetear todo?')){ localStorage.removeItem('elreto'); location.reload(); } }
+async function forceSync(){
+  hideSettings(); toast('Sincronizando...');
+  const [luz,fran,shared]=await Promise.all([DB.get('luz'),DB.get('fran'),DB.get('shared')]);
+  appData.luz=luz; appData.fran=fran; appData.shared=shared;
+  refreshCurrentPage(); renderBanners(); toast('✓ Sincronizado');
+}
+function resetAll(){
+  if(confirm('¿Resetear todo? Se perderán todos los datos en Supabase.')){
+    localStorage.removeItem('elreto_user'); localStorage.removeItem('elreto_prize_shown');
+    Promise.all([DB.set('luz',null),DB.set('fran',null),DB.set('shared',null)]).then(()=>location.reload());
+  }
+}
 
 // ============================================================
 // TOAST
@@ -1351,9 +1377,10 @@ function toast(msg,ms){
 }
 
 // ============================================================
-// INIT
+// BOOT
 // ============================================================
-initOnboarding();
+// Create SQL table if needed, then boot
+boot();
 </script>
 </body>
 </html>
