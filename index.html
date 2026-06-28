@@ -11,82 +11,99 @@
 :root{
   --bg:#0f0f14;--bg2:#17171f;--bg3:#1e1e28;--bg4:#252535;
   --border:#2a2a38;--acc:#c43820;--gold:#e8a020;--green:#4caf76;
-  --text:#f0ead6;--muted:#7a7a8a;--rad:12px;
-  --sb:env(safe-area-inset-bottom,0px);--st:env(safe-area-inset-top,0px);
+  --blue:#5a9ff0;--text:#f0ead6;--muted:#7a7a8a;--rad:12px;
+  --sb:env(safe-area-inset-bottom,0px)
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{background:var(--bg)}
 body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;max-width:430px;margin:0 auto;display:flex;flex-direction:column}
 
-/* SCREENS */
 .screen{display:none;flex-direction:column;flex:1}
 .screen.on{display:flex}
 
 /* ONBOARDING */
-.ob-wrap{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:40px 24px 60px;display:flex;flex-direction:column;gap:24px}
-.ob-logo{text-align:center;padding:20px 0}
-.ob-logo .title{font-size:32px;font-weight:800;letter-spacing:-1px;color:var(--text)}
-.ob-logo .title span{color:var(--acc)}
-.ob-logo .sub{font-size:13px;color:var(--muted);margin-top:6px}
-.ob-section{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);overflow:hidden}
-.ob-section-title{padding:14px 16px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border)}
-.name-btns{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px}
-.name-btn{padding:20px 12px;border-radius:10px;border:2px solid var(--border);background:var(--bg3);cursor:pointer;text-align:center;transition:all .15s;font-size:15px;color:var(--text)}
-.name-btn .avatar{font-size:32px;display:block;margin-bottom:6px}
-.name-btn .nm{font-weight:700}
-.name-btn.sel{border-color:var(--acc);background:rgba(196,56,32,.1)}
-.goal-list{padding:12px 16px;display:flex;flex-direction:column;gap:8px}
-.goal-row{display:flex;gap:8px;align-items:center}
-.goal-input{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;padding:10px 12px;font-family:inherit}
+.ob-wrap{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:40px 20px 60px;display:flex;flex-direction:column;gap:20px}
+.ob-logo{text-align:center;padding:10px 0 4px}
+.ob-title{font-size:34px;font-weight:800;letter-spacing:-1px}
+.ob-title span{color:var(--acc)}
+.ob-sub{font-size:13px;color:var(--muted);margin-top:5px}
+.ob-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);overflow:hidden}
+.ob-card-title{padding:12px 16px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border);background:var(--bg3)}
+.name-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px}
+.name-btn{padding:18px 10px;border-radius:10px;border:2px solid var(--border);background:var(--bg3);cursor:pointer;text-align:center;transition:all .15s;color:var(--text)}
+.name-btn .av{font-size:30px;display:block;margin-bottom:5px}
+.name-btn .nm{font-size:15px;font-weight:700}
+.name-btn.sel{border-color:var(--acc);background:rgba(196,56,32,.12)}
+.goal-list{padding:10px 14px;display:flex;flex-direction:column;gap:8px}
+.goal-row{display:flex;gap:8px;align-items:flex-start}
+.goal-inputs{flex:1;display:flex;flex-direction:column;gap:6px}
+.goal-input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;padding:9px 11px;font-family:inherit}
 .goal-input:focus{outline:none;border-color:var(--acc)}
-.goal-del{width:32px;height:32px;border-radius:8px;border:none;background:rgba(196,56,32,.15);color:var(--acc);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.add-goal-btn{margin:0 16px 12px;background:none;border:1px dashed var(--border);border-radius:8px;color:var(--muted);padding:10px;font-size:13px;cursor:pointer;width:calc(100% - 32px);transition:all .15s}
-.add-goal-btn:active{background:var(--bg3)}
-.prize-input{margin:12px 16px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;padding:10px 12px;font-family:inherit;width:calc(100% - 32px)}
+.goal-type-row{display:flex;gap:6px}
+.goal-type-btn{flex:1;padding:6px 4px;border-radius:7px;border:1px solid var(--border);background:var(--bg3);color:var(--muted);font-size:11px;font-weight:600;cursor:pointer;text-align:center;transition:all .15s}
+.goal-type-btn.sel-daily{border-color:var(--blue);background:rgba(90,159,240,.12);color:var(--blue)}
+.goal-type-btn.sel-weekly{border-color:var(--gold);background:rgba(232,160,32,.12);color:var(--gold)}
+.goal-del{width:32px;height:32px;border-radius:8px;border:none;background:rgba(196,56,32,.12);color:var(--acc);cursor:pointer;font-size:18px;flex-shrink:0;margin-top:1px}
+.add-goal-btn{margin:0 14px 12px;background:none;border:1px dashed var(--border);border-radius:8px;color:var(--muted);padding:9px;font-size:13px;cursor:pointer;width:calc(100% - 28px)}
+.prize-input{margin:10px 14px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;padding:9px 11px;font-family:inherit;width:calc(100% - 28px)}
 .prize-input:focus{outline:none;border-color:var(--gold)}
-.ob-confirm-btn{background:var(--acc);color:#fff;border:none;border-radius:var(--rad);padding:16px;font-size:16px;font-weight:700;cursor:pointer;width:100%;transition:opacity .15s}
-.ob-confirm-btn:disabled{opacity:.4;cursor:default}
+.ob-hint{font-size:12px;color:var(--muted);padding:10px 14px;line-height:1.5;border-top:1px solid var(--border)}
+.ob-confirm{background:var(--acc);color:#fff;border:none;border-radius:var(--rad);padding:15px;font-size:16px;font-weight:700;cursor:pointer;width:100%;transition:opacity .15s}
+.ob-confirm:disabled{opacity:.35;cursor:default}
 
-/* MAIN APP */
+/* APP */
 .app{display:flex;flex-direction:column;flex:1}
-.banners{flex-shrink:0;z-index:20}
+.banners{flex-shrink:0}
 .banner{padding:10px 16px;font-size:13px;font-weight:600;align-items:center;gap:8px;display:none}
 .banner.show{display:flex}
-.banner-warn{background:rgba(196,56,32,.9);color:#fff}
-.banner-sun{background:rgba(232,160,32,.9);color:#000}
-
-/* TOPBAR */
+.banner-warn{background:rgba(196,56,32,.92);color:#fff}
+.banner-sun{background:rgba(232,160,32,.92);color:#0f0f14}
 .topbar{background:var(--bg);border-bottom:1px solid var(--border);padding:14px 16px 12px;display:flex;justify-content:space-between;align-items:flex-start;flex-shrink:0}
-.topbar-left h1{font-size:19px;font-weight:800;letter-spacing:-.5px}
-.topbar-left .sub{font-size:12px;color:var(--muted);margin-top:2px}
-.gear-btn{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;padding:4px}
-
-/* PAGES - normal block flow, scroll comes from body/window on iOS */
+.topbar h1{font-size:18px;font-weight:800;letter-spacing:-.5px}
+.topbar .sub{font-size:11px;color:var(--muted);margin-top:2px}
+.gear{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;padding:2px}
 .pages{flex:1}
 .page{display:none;padding-bottom:90px}
 .page.on{display:block}
-
-/* NAV */
 .nav-bar{background:var(--bg2);border-top:1px solid var(--border);display:flex;padding-bottom:var(--sb);flex-shrink:0;position:sticky;bottom:0;z-index:50}
 .nb{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 4px 8px;border:none;background:none;color:var(--muted);font-size:10px;cursor:pointer;transition:color .15s;position:relative}
 .nb.on{color:var(--acc)}
 .nb-icon{font-size:20px;line-height:1}
-.nb-badge{position:absolute;top:6px;right:calc(50% - 18px);background:var(--acc);color:#fff;border-radius:10px;font-size:9px;font-weight:700;padding:1px 5px;min-width:16px;text-align:center}
+.nb-badge{position:absolute;top:6px;right:calc(50% - 18px);background:var(--acc);color:#fff;border-radius:10px;font-size:9px;font-weight:700;padding:1px 5px;min-width:16px;text-align:center;display:none}
 
-/* SECTION */
+/* LAYOUT UTILS */
 .sec{margin:14px 16px 0}
 .sec-title{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);overflow:hidden}
+.row-sep{border-bottom:1px solid var(--border)}
+.row-sep:last-child{border-bottom:none}
 
-/* STREAK */
-.streak-row{display:flex;gap:10px;margin:14px 16px 0}
-.streak-card{flex:1;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px;text-align:center}
-.streak-num{font-size:28px;font-weight:800;line-height:1;color:var(--acc)}
-.streak-lbl{font-size:10px;color:var(--muted);margin-top:3px}
+/* SCORE PILLS — the two numbers */
+.score-pair{display:flex;gap:8px;margin:14px 16px 0}
+.score-pill{flex:1;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px 12px;text-align:center}
+.score-pill-num{font-size:30px;font-weight:800;line-height:1}
+.score-pill-label{font-size:10px;color:var(--muted);margin-top:4px;line-height:1.3}
+.score-pill-sub{font-size:10px;margin-top:3px}
 
-/* CHECKS */
-.check-item{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s}
-.check-item:last-child{border-bottom:none}
+/* WEEKLY TARGETS */
+.weekly-targets{margin:14px 16px 0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);overflow:hidden}
+.wt-title{padding:11px 14px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--border);background:var(--bg3);display:flex;justify-content:space-between;align-items:center}
+.wt-week-label{font-weight:400;color:var(--muted);font-size:10px}
+.wt-goal-row{padding:11px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.wt-goal-row:last-child{border-bottom:none}
+.wt-goal-name{flex:1;font-size:13px}
+.wt-counter{display:flex;align-items:center;gap:8px}
+.wt-btn{width:30px;height:30px;border-radius:8px;border:none;background:var(--bg3);color:var(--text);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;border:1px solid var(--border)}
+.wt-btn:active{background:var(--bg4)}
+.wt-count{font-size:15px;font-weight:700;min-width:32px;text-align:center}
+.wt-target{font-size:11px;color:var(--muted)}
+.wt-done{color:var(--green)}
+.wt-progress-bar{height:3px;background:var(--bg3);margin:0 14px 10px;border-radius:2px;overflow:hidden}
+.wt-progress-fill{height:100%;border-radius:2px;background:var(--gold);transition:width .3s}
+.wt-progress-fill.done{background:var(--green)}
+
+/* DAILY CHECKS */
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;cursor:pointer;transition:background .1s}
 .check-item:active{background:var(--bg3)}
 .chk-box{width:24px;height:24px;border-radius:7px;border:1.5px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;margin-top:1px}
 .check-item.done .chk-box{background:var(--green);border-color:var(--green)}
@@ -94,391 +111,455 @@ body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:-apple
 .chk-content{flex:1;min-width:0}
 .chk-main{font-size:14px;line-height:1.3}
 .chk-badges{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
-.badge{font-size:10px;padding:2px 7px;border-radius:8px;font-weight:600}
-.badge-unverified{background:var(--bg3);color:var(--muted);border:1px solid var(--border)}
-.badge-photo{background:rgba(76,175,118,.15);color:var(--green)}
-.badge-gps{background:rgba(90,159,240,.15);color:#6aaaf5}
-.badge-approved{background:rgba(232,160,32,.15);color:var(--gold)}
-.badge-rejected{background:rgba(196,56,32,.15);color:var(--acc)}
+.badge{font-size:10px;padding:2px 7px;border-radius:8px;font-weight:600;white-space:nowrap}
+.b-unverified{background:var(--bg3);color:var(--muted);border:1px solid var(--border)}
+.b-photo{background:rgba(76,175,118,.15);color:var(--green)}
+.b-gps{background:rgba(90,159,240,.15);color:var(--blue)}
+.b-approved{background:rgba(232,160,32,.15);color:var(--gold)}
+.b-rejected{background:rgba(196,56,32,.15);color:var(--acc)}
+.b-daily{background:rgba(90,159,240,.1);color:var(--blue);border:1px solid rgba(90,159,240,.3)}
+.b-weekly{background:rgba(232,160,32,.1);color:var(--gold);border:1px solid rgba(232,160,32,.3)}
 .chk-actions{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
-.chk-btn{padding:6px 10px;border-radius:8px;border:none;font-size:11px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px;background:var(--bg3);color:var(--muted);border:1px solid var(--border);white-space:nowrap}
-.chk-btn:active{opacity:.7}
-.chk-btn.photo-done{color:var(--green)}
-.chk-btn.gps-done{color:#6aaaf5}
+.chk-btn{padding:6px 10px;border-radius:8px;border:1px solid var(--border);font-size:11px;font-weight:600;cursor:pointer;background:var(--bg3);color:var(--muted);white-space:nowrap}
+.chk-btn.done-proof{color:var(--green)}
 
-/* WORKOUT TYPE */
-.workout-row{padding:8px 14px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;gap:6px;align-items:center}
-.workout-input{flex:1;background:var(--bg2);border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:12px;padding:6px 10px;font-family:inherit}
-.workout-input:focus{outline:none;border-color:var(--acc)}
-.workout-chips{display:flex;flex-wrap:wrap;gap:4px;padding:6px 14px 10px;background:var(--bg3);border-bottom:1px solid var(--border)}
-.wchip{font-size:11px;padding:3px 9px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);color:var(--muted);cursor:pointer;transition:all .15s}
+/* WORKOUT CHIPS */
+.wchips{display:flex;flex-wrap:wrap;gap:5px;padding:10px 14px;background:var(--bg3);border-bottom:1px solid var(--border)}
+.wchip{font-size:11px;padding:4px 10px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);color:var(--muted);cursor:pointer;transition:all .15s}
 .wchip.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
+.custom-wt{display:flex;gap:8px;padding:8px 14px;background:var(--bg3);border-bottom:1px solid var(--border)}
+.custom-wt input{flex:1;background:var(--bg2);border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:12px;padding:6px 10px;font-family:inherit}
+.custom-wt input:focus{outline:none;border-color:var(--acc)}
+.custom-wt button{background:var(--acc);color:#fff;border:none;border-radius:7px;padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer}
 
 /* NOTE */
 .note-area{padding:10px 14px}
 .note-ta{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;padding:9px 11px;resize:none;min-height:64px;font-family:inherit}
 .note-ta:focus{outline:none;border-color:var(--acc)}
-.note-save{margin-top:6px;background:var(--acc);color:#fff;border:none;border-radius:8px;padding:8px;font-size:13px;font-weight:600;cursor:pointer;width:100%}
+.note-save{margin-top:6px;background:var(--acc);color:#fff;border:none;border-radius:8px;padding:9px;font-size:13px;font-weight:600;cursor:pointer;width:100%}
 
 /* OTHER TODAY */
 .other-today{margin:14px 16px 0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px}
 .ot-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .ot-name{font-size:14px;font-weight:700}
-.ot-streak{font-size:12px;color:var(--muted)}
-.ot-progress{height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;margin-bottom:8px}
+.ot-pcts{display:flex;gap:8px}
+.ot-pct{font-size:11px;padding:2px 8px;border-radius:8px;font-weight:600}
+.ot-prog{height:5px;background:var(--bg3);border-radius:3px;overflow:hidden;margin-bottom:8px}
 .ot-fill{height:100%;border-radius:3px;background:var(--acc);transition:width .4s}
 .ot-detail{font-size:12px;color:var(--muted);line-height:1.6}
 
 /* VALIDAR */
 .val-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);margin:10px 16px 0;overflow:hidden}
-.val-header{padding:12px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.val-hdr{padding:12px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
 .val-info{flex:1}
 .val-date{font-size:11px;color:var(--muted);margin-bottom:3px}
 .val-goal{font-size:14px;font-weight:600}
 .val-thumb{width:52px;height:52px;border-radius:8px;object-fit:cover;cursor:pointer;flex-shrink:0;border:1px solid var(--border)}
-.val-meta{padding:0 14px 10px;display:flex;flex-wrap:wrap;gap:6px}
-.val-gps{font-size:11px;color:#6aaaf5;text-decoration:none}
-.val-note{font-size:12px;color:var(--muted);font-style:italic;width:100%}
+.val-meta{padding:0 14px 10px;display:flex;flex-wrap:wrap;gap:5px;font-size:12px}
+.val-gps{color:var(--blue);text-decoration:none}
+.val-note{color:var(--muted);font-style:italic;width:100%}
+.val-time{color:var(--muted);font-size:10px;width:100%}
 .val-actions{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border)}
-.val-approve{padding:12px;border:none;background:rgba(76,175,118,.1);color:var(--green);font-size:14px;font-weight:700;cursor:pointer;border-right:1px solid var(--border);transition:background .15s}
+.val-approve{padding:13px;border:none;background:rgba(76,175,118,.1);color:var(--green);font-size:14px;font-weight:700;cursor:pointer;border-right:1px solid var(--border)}
 .val-approve:active{background:rgba(76,175,118,.25)}
-.val-reject{padding:12px;border:none;background:rgba(196,56,32,.08);color:var(--acc);font-size:14px;font-weight:700;cursor:pointer;transition:background .15s}
+.val-reject{padding:13px;border:none;background:rgba(196,56,32,.07);color:var(--acc);font-size:14px;font-weight:700;cursor:pointer}
 .val-reject:active{background:rgba(196,56,32,.2)}
-.val-done-badge{padding:12px 14px;text-align:center;font-size:13px;font-weight:700}
-.val-empty{padding:30px 16px;text-align:center;color:var(--muted);font-size:14px}
-
-/* WEEKLY REVIEW */
+.val-done-row{padding:12px 14px;text-align:center;font-size:13px;font-weight:700}
+.empty-state{padding:36px 20px;text-align:center;color:var(--muted);font-size:14px;line-height:1.7}
 .sunday-banner{margin:14px 16px 0;background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.3);border-radius:var(--rad);padding:14px;display:flex;align-items:center;gap:12px}
-.sun-icon{font-size:24px;flex-shrink:0}
+.sun-icon{font-size:22px}
 .sun-text{flex:1}
-.sun-title{font-size:14px;font-weight:700;color:var(--gold)}
-.sun-sub{font-size:12px;color:var(--muted);margin-top:2px}
-.sun-btn{background:var(--gold);color:#000;border:none;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap}
+.sun-title{font-size:13px;font-weight:700;color:var(--gold)}
+.sun-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.sun-btn{background:var(--gold);color:#0f0f14;border:none;border-radius:8px;padding:8px 13px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
 
 /* PROGRESO */
-.prog-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 16px 0}
-.prog-col{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px;text-align:center}
-.prog-col-name{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
-.prog-pct{font-size:30px;font-weight:800;line-height:1}
-.prog-pct.great{color:var(--green)}
-.prog-pct.ok{color:var(--gold)}
-.prog-pct.bad{color:var(--acc)}
-.prog-streak{font-size:11px;color:var(--muted);margin-top:4px}
-.prog-bar-wrap{margin-top:10px}
-.prog-bar-label{display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;color:var(--muted)}
-.prog-bar{height:5px;background:var(--bg3);border-radius:3px;overflow:hidden}
+.prog-duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 16px 0}
+.prog-col{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px}
+.prog-col-name{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+.prog-score-row{display:flex;gap:8px;align-items:flex-end;margin-bottom:10px}
+.prog-personal{font-size:28px;font-weight:800;line-height:1}
+.prog-verified{font-size:13px;font-weight:700;color:var(--gold);margin-bottom:2px}
+.prog-verified-label{font-size:9px;color:var(--muted)}
+.great{color:var(--green)}.ok{color:var(--gold)}.bad{color:var(--acc)}
+.prog-bar{height:5px;background:var(--bg3);border-radius:3px;overflow:hidden;margin-bottom:3px}
 .prog-fill{height:100%;border-radius:3px;transition:width .4s}
-.fill-acc{background:var(--acc)}
+.fill-personal{background:var(--acc)}
+.fill-verified{background:var(--gold)}
 .fill-green{background:var(--green)}
-.fill-gold{background:var(--gold)}
-.fill-blue{background:#5a9ff0}
-
-/* PRIZE */
+.prog-week-bars{margin-top:10px}
+.pwb-row{margin-bottom:6px}
+.pwb-label{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:2px}
 .prize-section{margin:14px 16px 0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);overflow:hidden}
-.prize-locked{padding:20px;text-align:center}
-.prize-lock-icon{font-size:40px;margin-bottom:10px}
-.prize-lock-title{font-size:16px;font-weight:700;margin-bottom:6px}
-.prize-lock-sub{font-size:13px;color:var(--muted);line-height:1.5}
-.prize-progress{margin-top:14px}
-.prize-prog-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-.prize-prog-name{font-size:12px;color:var(--muted);min-width:36px}
-.prize-prog-bar{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.prize-body{padding:20px;text-align:center}
+.prize-icon{font-size:36px;margin-bottom:10px}
+.prize-title{font-size:15px;font-weight:700;margin-bottom:6px}
+.prize-sub{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:14px}
+.prize-prog-row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.prize-prog-name{font-size:11px;color:var(--muted);min-width:34px}
+.prize-prog-bar{flex:1;height:7px;background:var(--bg3);border-radius:4px;overflow:hidden}
 .prize-prog-fill{height:100%;border-radius:4px;transition:width .5s}
-.prize-prog-pct{font-size:12px;font-weight:700;min-width:36px;text-align:right}
-
-/* PHOTO GALLERY */
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:3px}
+.prize-prog-pct{font-size:11px;font-weight:700;min-width:32px;text-align:right}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:3px}
 .gallery-img{aspect-ratio:1;object-fit:cover;border-radius:6px;width:100%;cursor:pointer}
 
 /* SEMANA */
 .week-nav{display:flex;align-items:center;justify-content:space-between;margin:14px 16px 0}
 .wn-btn{background:var(--bg2);border:1px solid var(--border);color:var(--text);width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center}
-.wn-label{font-size:14px;font-weight:700}
-.week-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 16px 0}
-.week-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px}
-.wc-name{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
-.wc-score{font-size:24px;font-weight:800;line-height:1;margin-bottom:8px}
-.wc-goal-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:12px;border-bottom:1px solid rgba(42,42,56,.6)}
-.wc-goal-row:last-child{border-bottom:none}
-.wc-goal-name{color:var(--muted);flex:1;margin-right:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.wc-goal-pct{font-weight:600;font-size:11px}
-.wt-chips-wrap{margin-top:8px;display:flex;flex-wrap:wrap;gap:4px}
-.wt-chip-disp{font-size:10px;padding:2px 7px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);color:var(--muted)}
-.val-status{margin:10px 16px 0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:13px 14px;font-size:13px;display:flex;justify-content:space-between;align-items:center}
-.val-status-label{color:var(--muted)}
-.val-status-count{font-weight:700;color:var(--gold)}
-.locked-week{margin:10px 16px 0;background:var(--bg3);border:1px solid var(--border);border-radius:var(--rad);padding:14px;text-align:center;font-size:13px;color:var(--muted)}
+.wn-label{font-size:13px;font-weight:700}
+.week-summary{margin:12px 16px 0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);overflow:hidden}
+.ws-header{padding:14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.ws-left h3{font-size:14px;font-weight:700}
+.ws-left p{font-size:11px;color:var(--muted);margin-top:2px}
+.ws-scores{display:flex;gap:10px;text-align:right}
+.ws-score-block{text-align:center}
+.ws-score-num{font-size:20px;font-weight:800;line-height:1}
+.ws-score-label{font-size:9px;color:var(--muted);margin-top:2px}
+.ws-details{padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.ws-goal-row{display:flex;align-items:center;gap:8px}
+.ws-goal-name{flex:1;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ws-goal-bar{width:60px;height:5px;background:var(--bg3);border-radius:3px;overflow:hidden}
+.ws-goal-fill{height:100%;border-radius:3px;background:var(--acc)}
+.ws-goal-pct{font-size:11px;font-weight:700;min-width:30px;text-align:right}
+.ws-wts{padding:10px 14px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:5px}
+.ws-wt-chip{font-size:10px;padding:2px 8px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);color:var(--muted)}
+.locked-week{margin:12px 16px 0;background:var(--bg3);border:1px solid var(--border);border-radius:var(--rad);padding:13px 14px;text-align:center;font-size:13px;color:var(--muted)}
+.val-status{margin:10px 16px 0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:13px 14px;display:flex;justify-content:space-between;align-items:center;font-size:13px}
 
-/* SETTINGS MODAL */
+/* MODALS */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:none;align-items:flex-end;justify-content:center}
 .modal-overlay.show{display:flex}
 .modal{background:var(--bg2);border-radius:var(--rad) var(--rad) 0 0;width:100%;max-width:430px;padding:20px 20px calc(20px + var(--sb));border-top:1px solid var(--border)}
 .modal-title{font-size:18px;font-weight:700;margin-bottom:16px}
-.modal-btn{width:100%;padding:14px;border-radius:10px;border:none;background:var(--bg3);color:var(--text);font-size:15px;cursor:pointer;margin-bottom:8px;text-align:left;border:1px solid var(--border)}
-.modal-btn:active{background:var(--bg4)}
+.modal-btn{width:100%;padding:14px;border-radius:10px;border:1px solid var(--border);background:var(--bg3);color:var(--text);font-size:15px;cursor:pointer;margin-bottom:8px;text-align:left}
 .modal-cancel{color:var(--muted);font-size:14px;text-align:center;cursor:pointer;margin-top:8px;padding:8px}
-
-/* IMAGE LIGHTBOX */
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:300;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:300;display:none;align-items:center;justify-content:center;flex-direction:column}
 .lightbox.show{display:flex}
-.lightbox img{max-width:100%;max-height:70vh;border-radius:8px;object-fit:contain}
+.lightbox img{max-width:100%;max-height:75vh;border-radius:8px;object-fit:contain}
 .lightbox-close{color:#fff;font-size:28px;cursor:pointer;position:absolute;top:20px;right:20px}
-
-/* WEEKLY REVIEW MODAL */
 .review-modal{position:fixed;inset:0;background:var(--bg);z-index:250;display:none;flex-direction:column;overflow-y:auto}
 .review-modal.show{display:flex}
-.review-modal-inner{padding:24px 20px calc(24px + var(--sb));flex:1}
-.review-title{font-size:22px;font-weight:800;margin-bottom:6px}
+.review-inner{padding:28px 20px calc(28px + var(--sb));flex:1}
+.review-title{font-size:22px;font-weight:800;margin-bottom:5px}
 .review-sub{font-size:13px;color:var(--muted);margin-bottom:20px}
-.review-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.review-duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
 .review-col{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px;text-align:center}
-.review-col-name{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
-.review-col-score{font-size:36px;font-weight:800}
+.review-col-name{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
+.review-col-personal{font-size:30px;font-weight:800;line-height:1}
+.review-col-verified{font-size:13px;font-weight:700;color:var(--gold);margin-top:4px}
+.review-col-vlabel{font-size:10px;color:var(--muted)}
 .review-confirm{background:var(--green);color:#fff;border:none;border-radius:var(--rad);padding:16px;font-size:16px;font-weight:700;cursor:pointer;width:100%;margin-bottom:10px}
 .review-skip{background:none;border:none;color:var(--muted);font-size:14px;cursor:pointer;padding:8px;width:100%}
-
-/* CONFETTI */
 .confetti-wrap{position:fixed;inset:0;pointer-events:none;z-index:400;overflow:hidden}
-.confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confetti-fall linear forwards}
-@keyframes confetti-fall{
-  0%{transform:translateY(-20px) rotate(0deg);opacity:1}
-  100%{transform:translateY(110vh) rotate(720deg);opacity:0}
-}
-
-/* PRIZE UNLOCK */
-.prize-unlock-overlay{position:fixed;inset:0;background:var(--bg);z-index:350;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 24px;gap:16px}
-.prize-unlock-overlay.show{display:flex}
-.prize-unlock-emoji{font-size:64px}
-.prize-unlock-title{font-size:28px;font-weight:800;letter-spacing:-.5px;line-height:1.2}
-.prize-unlock-prize{font-size:20px;font-weight:700;color:var(--gold);background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.3);border-radius:var(--rad);padding:14px 20px;width:100%}
-.prize-unlock-sub{font-size:15px;color:var(--muted);line-height:1.5}
-.prize-unlock-share{background:var(--acc);color:#fff;border:none;border-radius:var(--rad);padding:14px 24px;font-size:15px;font-weight:700;cursor:pointer;width:100%}
-.prize-unlock-close{background:none;border:none;color:var(--muted);font-size:14px;cursor:pointer;padding:8px}
-
-/* TOAST */
-.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-70px);background:var(--green);color:#fff;padding:9px 20px;border-radius:20px;font-size:13px;font-weight:600;z-index:500;transition:transform .3s;pointer-events:none;white-space:nowrap;max-width:90vw;text-align:center}
+.confetti-piece{position:absolute;animation:cffall linear forwards}
+@keyframes cffall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.prize-overlay{position:fixed;inset:0;background:var(--bg);z-index:350;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 24px;gap:16px}
+.prize-overlay.show{display:flex}
+.prize-big-emoji{font-size:60px}
+.prize-big-title{font-size:26px;font-weight:800;letter-spacing:-.5px;line-height:1.2}
+.prize-box{font-size:18px;font-weight:700;color:var(--gold);background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.3);border-radius:var(--rad);padding:14px 20px;width:100%}
+.prize-big-sub{font-size:14px;color:var(--muted);line-height:1.5}
+.prize-share{background:var(--acc);color:#fff;border:none;border-radius:var(--rad);padding:14px;font-size:15px;font-weight:700;cursor:pointer;width:100%}
+.prize-close{background:none;border:none;color:var(--muted);font-size:14px;cursor:pointer;padding:8px}
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-70px);background:var(--green);color:#fff;padding:9px 20px;border-radius:20px;font-size:13px;font-weight:600;z-index:500;transition:transform .3s;pointer-events:none;white-space:nowrap;max-width:88vw;text-align:center}
 .toast.show{transform:translateX(-50%) translateY(0)}
-
-/* UTILS */
-.divider{height:1px;background:var(--border)}
-.mt8{margin-top:8px}
-.empty-state{padding:32px 20px;text-align:center;color:var(--muted);font-size:14px;line-height:1.6}
 </style>
 </head>
 <body>
 
 <!-- ONBOARDING -->
 <div class="screen on" id="screen-ob">
-  <div class="ob-wrap">
-    <div class="ob-logo">
-      <div class="title">El <span>Reto</span></div>
-      <div class="sub">90 días · 2 personas · 1 plan</div>
-    </div>
-
-    <div class="ob-section">
-      <div class="ob-section-title">¿Quién eres?</div>
-      <div class="name-btns">
-        <div class="name-btn" onclick="selectName('luz',this)" id="btn-luz">
-          <span class="avatar">🌟</span>
-          <span class="nm">Luz</span>
-        </div>
-        <div class="name-btn" onclick="selectName('fran',this)" id="btn-fran">
-          <span class="avatar">⚡</span>
-          <span class="nm">Fran</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="ob-section">
-      <div class="ob-section-title">Tus objetivos (3–5)</div>
-      <div class="goal-list" id="goal-list"></div>
-      <button class="add-goal-btn" onclick="addGoalInput()" id="add-goal-btn">+ Añadir objetivo</button>
-    </div>
-
-    <div class="ob-section">
-      <div class="ob-section-title">Premio compartido 🏆</div>
-      <input type="text" class="prize-input" id="prize-input" placeholder="¿Qué os ganareis si los dos llegáis al 80%?" value="Un plan chulo juntos">
-    </div>
-
-    <button class="ob-confirm-btn" id="ob-confirm" onclick="confirmOnboarding()" disabled>Empezar el reto →</button>
+<div class="ob-wrap">
+  <div class="ob-logo">
+    <div class="ob-title">El <span>Reto</span></div>
+    <div class="ob-sub">90 días · 2 personas · 1 plan</div>
   </div>
+
+  <div class="ob-card">
+    <div class="ob-card-title">¿Quién eres?</div>
+    <div class="name-btns">
+      <div class="name-btn" onclick="selectName('luz',this)"><span class="av">🌟</span><span class="nm">Luz</span></div>
+      <div class="name-btn" onclick="selectName('fran',this)"><span class="av">⚡</span><span class="nm">Fran</span></div>
+    </div>
+  </div>
+
+  <div class="ob-card">
+    <div class="ob-card-title">Tus objetivos</div>
+    <div class="ob-hint">Elige si cada objetivo es <strong style="color:var(--blue)">diario</strong> (lo hago cada día) o <strong style="color:var(--gold)">semanal</strong> (tengo un número objetivo a la semana).</div>
+    <div class="goal-list" id="goal-list"></div>
+    <button class="add-goal-btn" id="add-goal-btn" onclick="addGoalInput()">+ Añadir objetivo</button>
+  </div>
+
+  <div class="ob-card">
+    <div class="ob-card-title">Premio compartido 🏆</div>
+    <input class="prize-input" id="prize-input" type="text" placeholder="¿Qué os ganareis si los dos llegáis al 80%?" value="Un plan chulo juntos">
+  </div>
+
+  <button class="ob-confirm" id="ob-confirm" onclick="confirmOnboarding()" disabled>Empezar el reto →</button>
+</div>
 </div>
 
-<!-- MAIN APP -->
+<!-- APP -->
 <div class="screen" id="screen-app">
-  <div class="app">
-    <div class="banners">
-      <div class="banner banner-warn" id="banner-warn">⚠️ Aún no has registrado nada hoy</div>
-      <div class="banner banner-sun" id="banner-sun">📋 Domingo — toca revisar la semana del otro</div>
-    </div>
-    <div class="topbar">
-      <div class="topbar-left">
-        <h1 id="topbar-name">El Reto</h1>
-        <div class="sub" id="topbar-sub"></div>
-      </div>
-      <button class="gear-btn" onclick="showSettings()">⚙️</button>
-    </div>
-    <div class="pages">
-      <div class="page on" id="page-hoy"></div>
-      <div class="page" id="page-validar"></div>
-      <div class="page" id="page-progreso"></div>
-      <div class="page" id="page-semana"></div>
-    </div>
-    <nav class="nav-bar">
-      <button class="nb on" onclick="goPage('hoy',this)" id="nb-hoy">
-        <span class="nb-icon">🔥</span>Hoy
-      </button>
-      <button class="nb" onclick="goPage('validar',this)" id="nb-validar">
-        <span class="nb-icon">✅</span>Validar
-        <span class="nb-badge" id="val-badge" style="display:none">!</span>
-      </button>
-      <button class="nb" onclick="goPage('progreso',this)" id="nb-progreso">
-        <span class="nb-icon">📊</span>Progreso
-      </button>
-      <button class="nb" onclick="goPage('semana',this)" id="nb-semana">
-        <span class="nb-icon">📅</span>Semana
-      </button>
-    </nav>
+<div class="app">
+  <div class="banners">
+    <div class="banner banner-warn" id="banner-warn">⚠️ Aún no has registrado nada hoy</div>
+    <div class="banner banner-sun" id="banner-sun">📋 Domingo — toca revisar la semana del otro</div>
   </div>
+  <div class="topbar">
+    <div><h1 id="topbar-name">El Reto</h1><div class="sub" id="topbar-sub"></div></div>
+    <button class="gear" onclick="showSettings()">⚙️</button>
+  </div>
+  <div class="pages">
+    <div class="page on" id="page-hoy"></div>
+    <div class="page" id="page-validar"></div>
+    <div class="page" id="page-progreso"></div>
+    <div class="page" id="page-semana"></div>
+  </div>
+  <nav class="nav-bar">
+    <button class="nb on" onclick="goPage('hoy',this)">
+      <span class="nb-icon">🔥</span>Hoy
+    </button>
+    <button class="nb" onclick="goPage('validar',this)">
+      <span class="nb-icon">✅</span>Validar
+      <span class="nb-badge" id="val-badge">!</span>
+    </button>
+    <button class="nb" onclick="goPage('progreso',this)">
+      <span class="nb-icon">📊</span>Progreso
+    </button>
+    <button class="nb" onclick="goPage('semana',this)">
+      <span class="nb-icon">📅</span>Semana
+    </button>
+  </nav>
+</div>
 </div>
 
-<!-- SETTINGS MODAL -->
+<!-- SETTINGS -->
 <div class="modal-overlay" id="settings-modal" onclick="if(event.target===this)hideSettings()">
   <div class="modal">
     <div class="modal-title">Ajustes</div>
     <button class="modal-btn" onclick="switchUser()">🔄 Cambiar usuario</button>
-    <button class="modal-btn" onclick="resetAll()" style="color:var(--acc)">🗑️ Resetear todo (peligroso)</button>
+    <button class="modal-btn" onclick="resetAll()" style="color:var(--acc)">🗑️ Resetear todo</button>
     <div class="modal-cancel" onclick="hideSettings()">Cancelar</div>
   </div>
 </div>
 
-<!-- IMAGE LIGHTBOX -->
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <span class="lightbox-close">✕</span>
   <img id="lightbox-img" src="" alt="">
 </div>
 
-<!-- WEEKLY REVIEW MODAL -->
+<!-- WEEKLY REVIEW -->
 <div class="review-modal" id="review-modal">
-  <div class="review-modal-inner" id="review-modal-inner"></div>
+  <div class="review-inner" id="review-inner"></div>
 </div>
 
-<!-- CONFETTI -->
+<!-- CONFETTI + PRIZE -->
 <div class="confetti-wrap" id="confetti-wrap"></div>
-
-<!-- PRIZE UNLOCK -->
-<div class="prize-unlock-overlay" id="prize-overlay">
-  <div class="prize-unlock-emoji">🎉</div>
-  <div class="prize-unlock-title">¡Lo conseguisteis!</div>
-  <div class="prize-unlock-prize" id="prize-name-display"></div>
-  <div class="prize-unlock-sub">Los dos habéis llegado al 80%+.<br>Hora de hacer ese plan.</div>
-  <button class="prize-unlock-share" onclick="sharePrize()">Compartir logro 🎊</button>
-  <button class="prize-unlock-close" onclick="closePrize()">Cerrar</button>
+<div class="prize-overlay" id="prize-overlay">
+  <div class="prize-big-emoji">🎉</div>
+  <div class="prize-big-title">¡Lo conseguisteis!</div>
+  <div class="prize-box" id="prize-name-display"></div>
+  <div class="prize-big-sub">Los dos habéis llegado al 80%+.<br>Hora de hacer ese plan.</div>
+  <button class="prize-share" onclick="sharePrize()">Compartir logro 🎊</button>
+  <button class="prize-close" onclick="closePrize()">Cerrar</button>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-// ===================== DATA =====================
+// ============================================================
+// CONFIG
+// ============================================================
 const START = new Date(2026,5,28);
 const END   = new Date(2026,8,25);
 const TOTAL_DAYS = 90;
-const WORKOUT_CHIPS = ['Tren superior','Piernas','Full body','MMA','Kickboxing','Cardio','Descanso'];
+const WT_CHIPS = ['Tren superior','Piernas','Full body','MMA','Kickboxing','Cardio','Descanso'];
 
+// ============================================================
+// STORAGE
+// ============================================================
 function getS(){ try{ return JSON.parse(localStorage.getItem('elreto')||'{}'); }catch(e){ return {}; } }
 function setS(d){ localStorage.setItem('elreto',JSON.stringify(d)); }
 
-function today(){
-  const d=new Date();
-  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
-}
+// ============================================================
+// DATE HELPERS
+// ============================================================
 function pad(n){ return String(n).padStart(2,'0'); }
+function today(){ const d=new Date(); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
 function dateKey(d){ return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
 function daysBetween(a,b){ return Math.round((b-a)/86400000); }
-function parseDate(k){ const [y,m,d]=k.split('-').map(Number); return new Date(y,m-1,d); }
-
-// ===================== CURRENT USER =====================
-let currentUser = null; // 'luz' or 'fran'
-function otherUser(){ return currentUser==='luz'?'fran':'luz'; }
-function getMe(){ const s=getS(); return s[currentUser]||null; }
-function getOther(){ const s=getS(); return s[otherUser()]||null; }
-function getShared(){ const s=getS(); return s.shared||{}; }
-
-// ===================== SCORING =====================
-function scoreDay(dayData, numGoals){
-  if(!dayData) return {points:0,max:numGoals*2};
-  let pts=0;
-  const checks=dayData.checks||{};
-  for(let i=0;i<numGoals;i++){
-    if(checks['goal_'+i]){
-      const hasProof=dayData.photo||dayData.gps;
-      const approved=dayData.approvedByOther;
-      if(approved) pts+=2;
-      else if(hasProof) pts+=1;
-      else pts+=0.5;
-    }
-  }
-  return {points:pts, max:numGoals*2};
+function parseDate(k){ const[y,m,d]=k.split('-').map(Number); return new Date(y,m-1,d); }
+function getWeekMon(offset){
+  const n=new Date(); const dow=n.getDay();
+  const m=new Date(n); m.setDate(n.getDate()-(dow===0?6:dow-1)+(offset||0)*7); m.setHours(0,0,0,0); return m;
+}
+function getWeekNum(d){
+  const dt=new Date(d); dt.setHours(0,0,0,0);
+  dt.setDate(dt.getDate()+3-(dt.getDay()+6)%7);
+  const w1=new Date(dt.getFullYear(),0,4);
+  return 1+Math.round(((dt-w1)/86400000-3+(w1.getDay()+6)%7)/7);
 }
 
-function overallScore(userData){
-  if(!userData||!userData.goals) return 0;
-  const days=userData.days||{};
-  const numGoals=userData.goals.length;
-  let totalPts=0,totalMax=0;
-  const now=new Date(); now.setHours(0,0,0,0);
-  const d=new Date(START);
-  while(d<=now&&d<=END){
-    const k=dateKey(d);
-    const sc=scoreDay(days[k],numGoals);
-    totalPts+=sc.points; totalMax+=sc.max;
-    d.setDate(d.getDate()+1);
-  }
-  if(!totalMax) return 0;
-  return Math.round(totalPts/totalMax*100);
-}
+// ============================================================
+// USER HELPERS
+// ============================================================
+let currentUser=null;
+function other(){ return currentUser==='luz'?'fran':'luz'; }
+function getMe(){ return getS()[currentUser]||null; }
+function getOther(){ return getS()[other()]||null; }
+function getShared(){ return getS().shared||{}; }
 
-function weekScore(userData, weekMon){
-  if(!userData||!userData.goals) return {pct:0,goalPcts:[]};
+// ============================================================
+// GOAL TYPE HELPERS
+// goal.type = 'daily' | 'weekly'
+// goal.weeklyTarget = number (only for weekly)
+// ============================================================
+
+// For a weekly goal: how many times completed this week
+function weeklyCount(userData, goalIdx, weekMon){
   const days=userData.days||{};
-  const numGoals=userData.goals.length;
-  let totalPts=0,totalMax=0;
-  const goalPts=new Array(numGoals).fill(0);
-  const goalMax=new Array(numGoals).fill(0);
   const now=new Date(); now.setHours(0,0,0,0);
+  let count=0;
   for(let i=0;i<7;i++){
     const d=new Date(weekMon); d.setDate(weekMon.getDate()+i);
     if(d<START||d>END||d>now) continue;
-    const k=dateKey(d); const dd=days[k]||{};
-    for(let g=0;g<numGoals;g++){
-      goalMax[g]+=2;
-      if(dd.checks&&dd.checks['goal_'+g]){
-        const hasProof=dd.photo||dd.gps;
-        const approved=dd.approvedByOther;
-        const pts=approved?2:hasProof?1:0.5;
-        goalPts[g]+=pts;
-        totalPts+=pts;
-      }
-      totalMax+=2;
-    }
+    const dd=days[dateKey(d)]||{};
+    if(dd.checks&&dd.checks['goal_'+goalIdx]) count++;
   }
-  const pct=totalMax?Math.round(totalPts/totalMax*100):0;
-  const goalPcts=goalPts.map((p,i)=>goalMax[i]?Math.round(p/goalMax[i]*100):0);
-  return {pct,goalPcts};
+  return count;
+}
+
+// ============================================================
+// SCORING — two separate numbers
+// personalPct: raw checks / possible checks (daily=each day, weekly=per-week target)
+// verifiedPct: approved checks / possible (only daily goals get individual approval;
+//              weekly goals get day-level proof approval)
+// ============================================================
+function computeScores(userData){
+  if(!userData||!userData.goals) return {personal:0,verified:0};
+  const goals=userData.goals;
+  const days=userData.days||{};
+  const now=new Date(); now.setHours(0,0,0,0);
+
+  let personalDone=0, personalTotal=0;
+  let verifiedDone=0, verifiedTotal=0;
+
+  // Daily goals: count each day
+  const dailyGoals=goals.map((g,i)=>({g,i})).filter(({g})=>g.type==='daily'||!g.type);
+  const weeklyGoals=goals.map((g,i)=>({g,i})).filter(({g})=>g.type==='weekly');
+
+  // Count days elapsed
+  const d=new Date(START);
+  while(d<=now&&d<=END){
+    const k=dateKey(d); const dd=days[k]||{};
+    // Daily goals
+    dailyGoals.forEach(({g,i})=>{
+      personalTotal++;
+      verifiedTotal++;
+      if(dd.checks&&dd.checks['goal_'+i]){
+        personalDone++;
+        if(dd.approvedByOther===true) verifiedDone++;
+        else if(dd.photo||dd.gps) verifiedDone+=0.5; // proof but not approved yet
+      }
+    });
+    d.setDate(d.getDate()+1);
+  }
+
+  // Weekly goals: count per week
+  const dw=new Date(START);
+  while(dw<=now&&dw<=END){
+    const dow=dw.getDay();
+    if(dow===1||dateKey(dw)===dateKey(START)){ // start of week
+      const weekMon=new Date(dw);
+      weeklyGoals.forEach(({g,i})=>{
+        const target=g.weeklyTarget||1;
+        const count=weeklyCount(userData,i,weekMon);
+        const achieved=Math.min(count,target);
+        personalTotal+=target;
+        personalDone+=achieved;
+        verifiedTotal+=target;
+        // verified: each weekly check with proof counts, approved counts more
+        for(let di=0;di<7;di++){
+          const dd2=new Date(weekMon); dd2.setDate(weekMon.getDate()+di);
+          if(dd2<START||dd2>now||dd2>END) continue;
+          const dd=days[dateKey(dd2)]||{};
+          if(dd.checks&&dd.checks['goal_'+i]){
+            if(dd.approvedByOther===true) verifiedDone+=Math.min(1,1);
+            else if(dd.photo||dd.gps) verifiedDone+=0.5;
+          }
+        }
+        verifiedDone=Math.min(verifiedDone,verifiedTotal); // cap
+      });
+    }
+    dw.setDate(dw.getDate()+1);
+  }
+
+  const personal=personalTotal?Math.round(personalDone/personalTotal*100):0;
+  const verified=verifiedTotal?Math.round(Math.min(verifiedDone,verifiedTotal)/verifiedTotal*100):0;
+  return {personal,verified};
+}
+
+// Week-level scores for summary
+function weekScores(userData, weekMon){
+  if(!userData||!userData.goals) return {personal:0,verified:0,goalData:[]};
+  const goals=userData.goals;
+  const days=userData.days||{};
+  const now=new Date(); now.setHours(0,0,0,0);
+  let pDone=0,pTotal=0,vDone=0,vTotal=0;
+  const goalData=goals.map((g,i)=>{
+    let gPDone=0,gPTotal=0;
+    if(g.type==='weekly'){
+      const target=g.weeklyTarget||1;
+      const count=weeklyCount(userData,i,weekMon);
+      gPTotal=target; gPDone=Math.min(count,target);
+    } else {
+      for(let di=0;di<7;di++){
+        const d=new Date(weekMon); d.setDate(weekMon.getDate()+di);
+        if(d<START||d>END||d>now) continue;
+        gPTotal++;
+        const dd=days[dateKey(d)]||{};
+        if(dd.checks&&dd.checks['goal_'+i]) gPDone++;
+      }
+    }
+    pDone+=gPDone; pTotal+=gPTotal;
+    return {goal:g,idx:i,done:gPDone,total:gPTotal,pct:gPTotal?Math.round(gPDone/gPTotal*100):0};
+  });
+  // verified
+  for(let di=0;di<7;di++){
+    const d=new Date(weekMon); d.setDate(weekMon.getDate()+di);
+    if(d<START||d>END||d>now) continue;
+    const dd=days[dateKey(d)]||{};
+    goals.forEach((_,i)=>{
+      vTotal++;
+      if(dd.checks&&dd.checks['goal_'+i]){
+        if(dd.approvedByOther===true) vDone++;
+        else if(dd.photo||dd.gps) vDone+=0.5;
+      }
+    });
+  }
+  return {
+    personal:pTotal?Math.round(pDone/pTotal*100):0,
+    verified:vTotal?Math.round(Math.min(vDone,vTotal)/vTotal*100):0,
+    goalData
+  };
 }
 
 function streakCount(userData){
   if(!userData||!userData.goals) return 0;
+  const goals=userData.goals;
   const days=userData.days||{};
-  const numGoals=userData.goals.length;
+  // streak = consecutive days where all daily goals are done
+  // (weekly goals don't break streak)
+  const dailyIdxs=goals.map((g,i)=>({g,i})).filter(({g})=>g.type==='daily'||!g.type).map(({i})=>i);
+  if(!dailyIdxs.length) return 0;
   let streak=0;
   const d=new Date(); d.setHours(0,0,0,0);
   while(true){
-    const k=dateKey(d);
-    const dd=days[k]; if(!dd) break;
-    const checks=dd.checks||{};
-    const allDone=Array.from({length:numGoals},(_,i)=>checks['goal_'+i]).every(Boolean);
+    const k=dateKey(d); const dd=days[k];
+    if(!dd){ break; }
+    const allDone=dailyIdxs.every(i=>dd.checks&&dd.checks['goal_'+i]);
     if(!allDone) break;
     streak++;
     d.setDate(d.getDate()-1);
@@ -487,29 +568,19 @@ function streakCount(userData){
   return streak;
 }
 
-// ===================== ONBOARDING =====================
-let obName=null; let goalCount=0;
+// ============================================================
+// ONBOARDING
+// ============================================================
+let obName=null, goalCount=0;
 
 function initOnboarding(){
   const s=getS();
-  // Check if already set up
-  if(s._currentUser&&s[s._currentUser]){
-    currentUser=s._currentUser;
-    initApp();
-    return;
-  }
-  // Check if partially set up and just need to pick user
-  if((s.luz||s.fran)&&!s._currentUser){
-    currentUser=s.luz?'luz':'fran';
-    setS(Object.assign(getS(),{_currentUser:currentUser}));
-    initApp();
-    return;
-  }
+  if(s._currentUser&&s[s._currentUser]){ currentUser=s._currentUser; initApp(); return; }
   showScreen('screen-ob');
   addGoalInput(); addGoalInput(); addGoalInput();
 }
 
-function selectName(name, el){
+function selectName(name,el){
   obName=name;
   document.querySelectorAll('.name-btn').forEach(b=>b.classList.remove('sel'));
   el.classList.add('sel');
@@ -519,46 +590,78 @@ function selectName(name, el){
 function addGoalInput(){
   if(goalCount>=5) return;
   const list=document.getElementById('goal-list');
-  const row=document.createElement('div'); row.className='goal-row'; row.id='goal-row-'+goalCount;
-  row.innerHTML=`<input type="text" class="goal-input" placeholder="Objetivo ${goalCount+1}..." oninput="validateOb()">
-    <button class="goal-del" onclick="removeGoal(${goalCount})">−</button>`;
+  const idx=goalCount; goalCount++;
+  const row=document.createElement('div'); row.className='goal-row'; row.id='goal-row-'+idx;
+  row.innerHTML=`<div class="goal-inputs">
+    <input type="text" class="goal-input" id="gi-${idx}" placeholder="Objetivo..." oninput="validateOb()">
+    <div class="goal-type-row">
+      <button class="goal-type-btn sel-daily" id="gt-daily-${idx}" onclick="setGoalType(${idx},'daily')">📅 Diario</button>
+      <button class="goal-type-btn" id="gt-weekly-${idx}" onclick="setGoalType(${idx},'weekly')">📆 Semanal</button>
+      <input type="number" id="gt-target-${idx}" min="1" max="7" value="4" style="width:48px;background:var(--bg3);border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:12px;padding:5px 7px;display:none;font-family:inherit" placeholder="veces">
+    </div>
+  </div>
+  <button class="goal-del" onclick="removeGoalInput(${idx})">−</button>`;
   list.appendChild(row);
-  goalCount++;
   document.getElementById('add-goal-btn').style.display=goalCount>=5?'none':'block';
   validateOb();
 }
 
-function removeGoal(idx){
+function setGoalType(idx,type){
+  const dailyBtn=document.getElementById('gt-daily-'+idx);
+  const weeklyBtn=document.getElementById('gt-weekly-'+idx);
+  const targetInput=document.getElementById('gt-target-'+idx);
+  if(type==='daily'){
+    dailyBtn.className='goal-type-btn sel-daily';
+    weeklyBtn.className='goal-type-btn';
+    targetInput.style.display='none';
+  } else {
+    weeklyBtn.className='goal-type-btn sel-weekly';
+    dailyBtn.className='goal-type-btn';
+    targetInput.style.display='block';
+  }
+}
+
+function removeGoalInput(idx){
   const row=document.getElementById('goal-row-'+idx);
   if(row) row.remove();
+  document.getElementById('add-goal-btn').style.display=goalCount>=5?'none':'block';
   validateOb();
 }
 
-function getGoals(){
-  return Array.from(document.querySelectorAll('.goal-input'))
-    .map(i=>i.value.trim()).filter(Boolean);
+function getGoalsFromForm(){
+  const goals=[];
+  for(let i=0;i<goalCount;i++){
+    const inp=document.getElementById('gi-'+i);
+    if(!inp||!inp.closest('.goal-row')) continue;
+    const name=inp.value.trim(); if(!name) continue;
+    const weeklyBtn=document.getElementById('gt-weekly-'+i);
+    const isWeekly=weeklyBtn&&weeklyBtn.classList.contains('sel-weekly');
+    const targetInp=document.getElementById('gt-target-'+i);
+    const target=isWeekly?parseInt(targetInp?.value||4):null;
+    goals.push({name,type:isWeekly?'weekly':'daily',weeklyTarget:target});
+  }
+  return goals;
 }
 
 function validateOb(){
-  const goals=getGoals();
-  const valid=obName&&goals.length>=3;
-  document.getElementById('ob-confirm').disabled=!valid;
+  const goals=getGoalsFromForm();
+  document.getElementById('ob-confirm').disabled=!obName||goals.length<2;
 }
 
 function confirmOnboarding(){
-  const goals=getGoals();
+  const goals=getGoalsFromForm();
   const prize=document.getElementById('prize-input').value.trim()||'Un plan chulo juntos';
-  if(!obName||goals.length<3) return;
+  if(!obName||goals.length<2) return;
   const s=getS();
   s[obName]={name:obName==='luz'?'Luz':'Fran',goals,days:{},weeklyReviews:{}};
   s.shared={prize,startDate:'2026-06-28',endDate:'2026-09-25'};
   s._currentUser=obName;
-  setS(s);
-  currentUser=obName;
-  initApp();
+  setS(s); currentUser=obName; initApp();
 }
 
-// ===================== APP INIT =====================
+// ============================================================
+// APP INIT
+// ============================================================
 function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));
   document.getElementById(id).classList.add('on');
@@ -566,611 +669,629 @@ function showScreen(id){
 
 function initApp(){
   showScreen('screen-app');
-  const me=getMe();
-  if(!me) return;
+  const me=getMe(); if(!me) return;
   document.getElementById('topbar-name').textContent=me.name+' · El Reto';
   const dayNum=Math.max(1,daysBetween(START,new Date())+1);
   document.getElementById('topbar-sub').textContent=`Día ${Math.min(dayNum,90)} de ${TOTAL_DAYS}`;
-  renderBanners();
-  renderHoy();
-  renderValidar();
-  checkPrize();
+  renderBanners(); renderHoy(); renderValidar(); checkPrize();
 }
 
 function renderBanners(){
   const now=new Date();
-  const isSunday=now.getDay()===0;
-  document.getElementById('banner-sun').style.display=isSunday?'flex':'none';
-  const me=getMe();
-  const todayKey=today();
-  const todayData=me?.days?.[todayKey];
-  const hasChecks=todayData&&Object.values(todayData.checks||{}).some(Boolean);
-  document.getElementById('banner-warn').style.display=(!hasChecks)?'flex':'none';
-  // Validation badge
+  document.getElementById('banner-sun').style.display=now.getDay()===0?'flex':'none';
+  const me=getMe(); const k=today(); const dd=me?.days?.[k];
+  const hasAny=dd&&Object.values(dd.checks||{}).some(Boolean);
+  document.getElementById('banner-warn').style.display=hasAny?'none':'flex';
   const pending=getPendingValidations().length;
   const badge=document.getElementById('val-badge');
   badge.style.display=pending>0?'inline':'none';
   badge.textContent=pending;
 }
 
-// ===================== PAGE NAV =====================
+// ============================================================
+// PAGE NAV
+// ============================================================
 function goPage(id,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
   document.getElementById('page-'+id).classList.add('on');
   btn.classList.add('on');
+  window.scrollTo(0,0);
   if(id==='hoy') renderHoy();
   if(id==='validar') renderValidar();
   if(id==='progreso') renderProgreso();
   if(id==='semana') renderSemana();
 }
 
-// ===================== HOY =====================
+// ============================================================
+// HOY
+// ============================================================
 function renderHoy(){
-  const me=getMe(); const other=getOther();
-  if(!me) return;
-  const todayKey=today();
-  const dd=me.days[todayKey]||{checks:{}};
+  const me=getMe(); const oth=getOther(); if(!me) return;
+  const k=today(); const s=getS(); const dd=me.days[k]||{checks:{}};
+  const goals=me.goals;
+  const scores=computeScores(me);
+  const otherScores=oth?computeScores(oth):{personal:0,verified:0};
   const streak=streakCount(me);
-  const otherStreak=other?streakCount(other):0;
+  const otherStreak=oth?streakCount(oth):0;
 
-  let html=`<div class="streak-row">
-    <div class="streak-card"><div class="streak-num">${streak}🔥</div><div class="streak-lbl">Tu racha</div></div>
-    ${other?`<div class="streak-card"><div class="streak-num">${otherStreak}🔥</div><div class="streak-lbl">Racha de ${other.name}</div></div>`:''}
+  // Score pills
+  let html=`<div class="score-pair">
+    <div class="score-pill">
+      <div class="score-pill-num ${scores.personal>=80?'great':scores.personal>=50?'ok':'bad'}">${scores.personal}%</div>
+      <div class="score-pill-label">Tu progreso</div>
+      <div class="score-pill-sub" style="color:var(--muted)">${streak}🔥 racha</div>
+    </div>
+    <div class="score-pill">
+      <div class="score-pill-num" style="color:var(--gold)">${scores.verified}%</div>
+      <div class="score-pill-label">Verificado por ${oth?oth.name:'el otro'}</div>
+      <div class="score-pill-sub" style="color:var(--muted)">con prueba aprobada</div>
+    </div>
   </div>`;
 
-  html+=`<div class="sec"><div class="sec-title">Tus objetivos hoy</div><div class="card">`;
-
-  // Workout type
-  const currentWT=dd.workoutType||'';
-  html+=`<div class="workout-chips">`;
-  WORKOUT_CHIPS.forEach(c=>{
-    html+=`<span class="wchip${currentWT===c?' on':''}" onclick="setWorkoutType('${todayKey}','${c}')">${c}</span>`;
-  });
-  html+=`</div>
-  <div class="workout-row">
-    <input type="text" class="workout-input" id="wt-custom" placeholder="Otro tipo de entrenamiento..." value="${currentWT&&!WORKOUT_CHIPS.includes(currentWT)?currentWT:''}" onchange="setCustomWT('${todayKey}',this.value)">
-  </div>`;
-
-  me.goals.forEach((goal,i)=>{
-    const isDone=!!(dd.checks&&dd.checks['goal_'+i]);
-    const hasPhoto=!!dd.photo;
-    const hasGPS=!!dd.gps;
-    const isApproved=!!dd.approvedByOther;
-    let badges='';
-    if(isApproved) badges+=`<span class="badge badge-approved">⭐ Aprobado</span>`;
-    else if(hasPhoto) badges+=`<span class="badge badge-photo">📸 Con prueba</span>`;
-    else if(hasGPS) badges+=`<span class="badge badge-gps">📍 Ubicación</span>`;
-    else if(isDone) badges+=`<span class="badge badge-unverified">sin verificar</span>`;
-
-    html+=`<div class="check-item${isDone?' done':''}" onclick="toggleGoal('${todayKey}',${i},this)" id="ci-${i}">
-      <div class="chk-box">${isDone?chkSvg():''}</div>
-      <div class="chk-content">
-        <div class="chk-main">${goal}</div>
-        <div class="chk-badges">${badges}</div>
-        <div class="chk-actions">
-          <button class="chk-btn${hasPhoto?' photo-done':''}" onclick="event.stopPropagation();uploadPhoto('${todayKey}',${i})">${hasPhoto?'📸 Ver foto':'📷 Añadir foto'}</button>
-          <button class="chk-btn${hasGPS?' gps-done':''}" onclick="event.stopPropagation();captureGPS('${todayKey}')">${hasGPS?'📍 '+dd.gps.lat.toFixed(3)+','+dd.gps.lng.toFixed(3):'📍 Ubicación'}</button>
+  // Weekly targets section (for weekly goals)
+  const weeklyGoals=goals.map((g,i)=>({g,i})).filter(({g})=>g.type==='weekly');
+  if(weeklyGoals.length){
+    const mon=getWeekMon(0);
+    const monStr=mon.toLocaleDateString('es',{day:'numeric',month:'short'});
+    html+=`<div class="weekly-targets">
+      <div class="wt-title">Objetivos semanales <span class="wt-week-label">semana del ${monStr}</span></div>`;
+    weeklyGoals.forEach(({g,i})=>{
+      const target=g.weeklyTarget||1;
+      const count=weeklyCount(me,i,mon);
+      const pct=Math.min(100,Math.round(count/target*100));
+      const done=count>=target;
+      html+=`<div>
+        <div class="wt-goal-row">
+          <span class="wt-goal-name">${g.name}</span>
+          <div class="wt-counter">
+            <button class="wt-btn" onclick="changeWeeklyCount('${k}',${i},-1,event)">−</button>
+            <span class="wt-count ${done?'wt-done':''}">${count}<span style="font-size:11px;color:var(--muted);font-weight:400">/${target}</span></span>
+            <button class="wt-btn" onclick="changeWeeklyCount('${k}',${i},1,event)">+</button>
+          </div>
+          <span class="wt-target" style="color:${done?'var(--green)':'var(--muted)'}">${done?'✓ OK':'faltan '+(target-count)}</span>
         </div>
-      </div>
+        <div class="wt-progress-bar"><div class="wt-progress-fill ${done?'done':''}" style="width:${pct}%"></div></div>
+      </div>`;
+    });
+    html+=`</div>`;
+  }
+
+  // Daily goals
+  const dailyGoals=goals.map((g,i)=>({g,i})).filter(({g})=>g.type==='daily'||!g.type);
+  if(dailyGoals.length){
+    const currentWT=dd.workoutType||'';
+    html+=`<div class="sec"><div class="sec-title">Checks diarios</div><div class="card">`;
+    // Workout type chips
+    html+=`<div class="wchips">`;
+    WT_CHIPS.forEach(c=>{
+      html+=`<span class="wchip${currentWT===c?' on':''}" onclick="setWT('${k}','${c}')">${c}</span>`;
+    });
+    html+=`</div>
+    <div class="custom-wt">
+      <input type="text" id="cwt" placeholder="Otro entrenamiento..." value="${currentWT&&!WT_CHIPS.includes(currentWT)?currentWT:''}">
+      <button onclick="setCustomWT('${k}')">OK</button>
     </div>`;
-  });
+
+    dailyGoals.forEach(({g,i})=>{
+      const isDone=!!(dd.checks&&dd.checks['goal_'+i]);
+      const hasPhoto=!!dd.photo;
+      const hasGPS=!!dd.gps;
+      const isApproved=dd.approvedByOther===true;
+      let badges=`<span class="badge b-daily">diario</span>`;
+      if(isApproved) badges+=`<span class="badge b-approved">⭐ verificado</span>`;
+      else if(hasPhoto&&isDone) badges+=`<span class="badge b-photo">📸 con prueba</span>`;
+      else if(hasGPS&&isDone) badges+=`<span class="badge b-gps">📍 ubicación</span>`;
+      else if(isDone) badges+=`<span class="badge b-unverified">sin verificar</span>`;
+
+      html+=`<div class="check-item row-sep${isDone?' done':''}" onclick="toggleGoal('${k}',${i})">
+        <div class="chk-box">${isDone?chkSvg():''}</div>
+        <div class="chk-content">
+          <div class="chk-main">${g.name}</div>
+          <div class="chk-badges">${badges}</div>
+          <div class="chk-actions">
+            <button class="chk-btn${hasPhoto?' done-proof':''}" onclick="event.stopPropagation();uploadPhoto('${k}')">${hasPhoto?'📸 foto añadida':'📷 añadir foto'}</button>
+            <button class="chk-btn${hasGPS?' done-proof':''}" onclick="event.stopPropagation();captureGPS('${k}')">${hasGPS?'📍 '+dd.gps.lat.toFixed(3):'📍 ubicación'}</button>
+          </div>
+        </div>
+      </div>`;
+    });
+    html+=`</div></div>`;
+  }
 
   // Note
   const note=dd.note||'';
-  html+=`</div></div>
-  <div class="sec"><div class="sec-title">Nota del día</div>
+  html+=`<div class="sec"><div class="sec-title">Nota del día</div>
   <div class="card"><div class="note-area">
-    <textarea class="note-ta" id="note-ta" placeholder="Cómo ha ido el día...">${note}</textarea>
-    <button class="note-save" onclick="saveNote('${todayKey}')">Guardar nota</button>
+    <textarea class="note-ta" id="note-ta" placeholder="Cómo ha ido...">${note}</textarea>
+    <button class="note-save" onclick="saveNote('${k}')">Guardar</button>
   </div></div></div>`;
 
   // Other today
-  if(other){
-    const oDays=other.days||{};
-    const odd=oDays[todayKey]||{checks:{}};
-    const oGoals=other.goals||[];
-    const oDone=oGoals.filter((_,i)=>odd.checks&&odd.checks['goal_'+i]).length;
-    const oPct=oGoals.length?Math.round(oDone/oGoals.length*100):0;
+  if(oth){
+    const odd=oth.days[k]||{checks:{}};
+    const oDailyGoals=oth.goals.filter(g=>g.type==='daily'||!g.type);
+    const oDailyDone=oDailyGoals.filter((_,ii)=>{
+      const realIdx=oth.goals.indexOf(oDailyGoals[ii]);
+      return odd.checks&&odd.checks['goal_'+realIdx];
+    }).length;
+    const oPct=oDailyGoals.length?Math.round(oDailyDone/oDailyGoals.length*100):0;
     const oHasProof=odd.photo||odd.gps;
     html+=`<div class="other-today">
       <div class="ot-header">
-        <div class="ot-name">${other.name} hoy</div>
-        <div class="ot-streak">${otherStreak}🔥</div>
+        <div class="ot-name">${oth.name} hoy</div>
+        <div class="ot-pcts">
+          <span class="ot-pct" style="background:rgba(196,56,32,.12);color:var(--acc)">${otherScores.personal}% personal</span>
+          <span class="ot-pct" style="background:rgba(232,160,32,.12);color:var(--gold)">${otherScores.verified}% verif.</span>
+        </div>
       </div>
-      <div class="ot-progress"><div class="ot-fill" style="width:${oPct}%"></div></div>
+      <div class="ot-prog"><div class="ot-fill" style="width:${oPct}%"></div></div>
       <div class="ot-detail">
-        ${oDone} de ${oGoals.length} objetivos completados${oHasProof?' · 📸 ha subido prueba':''}
+        Checks diarios: ${oDailyDone}/${oDailyGoals.length}${oHasProof?' · 📸 ha subido prueba':''}
         ${odd.workoutType?` · ${odd.workoutType}`:''}
+        ${otherStreak>0?` · ${otherStreak}🔥`:''}
       </div>
     </div>`;
   } else {
-    html+=`<div class="other-today"><div class="ot-detail" style="color:var(--muted);font-size:13px">El otro usuario aún no ha configurado su perfil.</div></div>`;
+    html+=`<div class="other-today"><div class="ot-detail">El otro usuario aún no ha configurado su perfil.</div></div>`;
   }
 
   document.getElementById('page-hoy').innerHTML=html;
-
-  // Hidden file input for photo
-  if(!document.getElementById('photo-file-input')){
+  if(!document.getElementById('photo-input')){
     const inp=document.createElement('input');
-    inp.type='file'; inp.accept='image/*'; inp.id='photo-file-input';
-    inp.style.display='none'; document.body.appendChild(inp);
+    inp.type='file'; inp.accept='image/*'; inp.id='photo-input'; inp.style.display='none';
+    document.body.appendChild(inp);
   }
 }
 
 function chkSvg(){ return '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polyline points="2,7 6,11 12,3" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'; }
 
-function toggleGoal(dayKey,idx,el){
+function toggleGoal(k,idx){
   const s=getS(); const u=s[currentUser];
-  if(!u.days[dayKey]) u.days[dayKey]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
-  const dd=u.days[dayKey];
-  dd.checks['goal_'+idx]=!dd.checks['goal_'+idx];
-  setS(s);
-  renderHoy();
-  renderBanners();
+  if(!u.days[k]) u.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
+  u.days[k].checks['goal_'+idx]=!u.days[k].checks['goal_'+idx];
+  setS(s); renderHoy(); renderBanners();
 }
 
-function setWorkoutType(dayKey,wt){
+// weekly counter: change the count for a weekly goal on a given day
+// We store weekly goal completions as individual day checks too,
+// but we find which days this week are already checked and add/remove
+function changeWeeklyCount(k,goalIdx,delta,event){
+  event.stopPropagation();
   const s=getS(); const u=s[currentUser];
-  if(!u.days[dayKey]) u.days[dayKey]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
-  u.days[dayKey].workoutType=u.days[dayKey].workoutType===wt?'':wt;
+  const mon=getWeekMon(0);
+  const target=(u.goals[goalIdx]&&u.goals[goalIdx].weeklyTarget)||1;
+  const current=weeklyCount(u,goalIdx,mon);
+  const newCount=Math.max(0,Math.min(target,current+delta));
+  if(newCount===current){ setS(s); renderHoy(); return; }
+
+  if(delta>0){
+    // Find first unchecked day this week (from today back)
+    const now=new Date(); now.setHours(0,0,0,0);
+    for(let i=0;i<7;i++){
+      const d=new Date(now); d.setDate(now.getDate()-i);
+      if(d<mon||d<START||d>END) continue;
+      const dk=dateKey(d);
+      if(!u.days[dk]) u.days[dk]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
+      if(!u.days[dk].checks['goal_'+goalIdx]){
+        u.days[dk].checks['goal_'+goalIdx]=true; break;
+      }
+    }
+  } else {
+    // Remove most recent check this week
+    const now=new Date(); now.setHours(0,0,0,0);
+    for(let i=0;i<7;i++){
+      const d=new Date(now); d.setDate(now.getDate()-i);
+      if(d<mon||d<START||d>END) continue;
+      const dk=dateKey(d);
+      if(u.days[dk]&&u.days[dk].checks['goal_'+goalIdx]){
+        u.days[dk].checks['goal_'+goalIdx]=false; break;
+      }
+    }
+  }
+  setS(s); renderHoy(); renderBanners();
+}
+
+function setWT(k,wt){
+  const s=getS(); const u=s[currentUser];
+  if(!u.days[k]) u.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
+  u.days[k].workoutType=u.days[k].workoutType===wt?'':wt;
   setS(s); renderHoy();
 }
 
-function setCustomWT(dayKey,val){
+function setCustomWT(k){
+  const val=document.getElementById('cwt')?.value.trim(); if(!val) return;
   const s=getS(); const u=s[currentUser];
-  if(!u.days[dayKey]) u.days[dayKey]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
-  u.days[dayKey].workoutType=val.trim();
-  setS(s);
+  if(!u.days[k]) u.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
+  u.days[k].workoutType=val; setS(s); renderHoy();
 }
 
-let _photoDay=null;
-function uploadPhoto(dayKey){
-  _photoDay=dayKey;
-  const inp=document.getElementById('photo-file-input');
+let _photoKey=null;
+function uploadPhoto(k){
+  _photoKey=k;
+  const inp=document.getElementById('photo-input');
   inp.onchange=function(){
     const file=inp.files[0]; if(!file) return;
-    // Check storage
-    try{
-      const used=JSON.stringify(getS()).length;
-      if(used>4*1024*1024) { toast('⚠️ Almacenamiento casi lleno. Borra fotos antiguas.'); return; }
-    }catch(e){}
-    const reader=new FileReader();
-    reader.onload=function(e){
+    try{ if(JSON.stringify(getS()).length>4*1024*1024){ toast('⚠️ Almacenamiento casi lleno'); return; }}catch(e){}
+    const r=new FileReader();
+    r.onload=function(e){
       const s=getS(); const u=s[currentUser];
-      if(!u.days[_photoDay]) u.days[_photoDay]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
-      u.days[_photoDay].photo=e.target.result;
-      u.days[_photoDay].photoTime=new Date().toISOString();
-      setS(s); renderHoy(); toast('Foto guardada 📸');
+      if(!u.days[_photoKey]) u.days[_photoKey]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
+      u.days[_photoKey].photo=e.target.result;
+      u.days[_photoKey].photoTime=new Date().toISOString();
+      setS(s); renderHoy(); toast('📸 Foto guardada');
     };
-    reader.readAsDataURL(file);
-    inp.value='';
+    r.readAsDataURL(file); inp.value='';
   };
   inp.click();
 }
 
-function captureGPS(dayKey){
+function captureGPS(k){
   if(!navigator.geolocation){ toast('GPS no disponible'); return; }
   toast('Obteniendo ubicación...');
   navigator.geolocation.getCurrentPosition(pos=>{
     const s=getS(); const u=s[currentUser];
-    if(!u.days[dayKey]) u.days[dayKey]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
-    u.days[dayKey].gps={lat:pos.coords.latitude,lng:pos.coords.longitude};
-    setS(s); renderHoy(); toast('Ubicación guardada 📍');
-  },err=>{ toast('No se pudo obtener la ubicación'); });
+    if(!u.days[k]) u.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
+    u.days[k].gps={lat:pos.coords.latitude,lng:pos.coords.longitude};
+    setS(s); renderHoy(); toast('📍 Ubicación guardada');
+  },()=>toast('No se pudo obtener la ubicación'));
 }
 
-function saveNote(dayKey){
-  const txt=document.getElementById('note-ta').value.trim();
+function saveNote(k){
+  const txt=document.getElementById('note-ta')?.value.trim();
   const s=getS(); const u=s[currentUser];
-  if(!u.days[dayKey]) u.days[dayKey]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
-  u.days[dayKey].note=txt;
-  setS(s); toast('Nota guardada ✓');
+  if(!u.days[k]) u.days[k]={checks:{},photo:null,gps:null,note:'',approvedByOther:false,workoutType:''};
+  u.days[k].note=txt||''; setS(s); toast('Nota guardada ✓');
 }
 
-// ===================== VALIDAR =====================
+// ============================================================
+// VALIDAR
+// ============================================================
 function getPendingValidations(){
-  const other=getOther(); if(!other) return [];
-  const days=other.days||{}; const goals=other.goals||[];
+  const oth=getOther(); if(!oth) return [];
+  const days=oth.days||{}; const goals=oth.goals||[];
   const now=new Date(); now.setHours(0,0,0,0);
   const cutoff=new Date(now); cutoff.setDate(now.getDate()-7);
   const pending=[];
   Object.keys(days).forEach(k=>{
-    const d=parseDate(k);
-    if(d<cutoff||d>now) return;
+    const d=parseDate(k); if(d<cutoff||d>now) return;
     const dd=days[k];
     if(dd.approvedByOther) return;
-    goals.forEach((goal,i)=>{
-      if(dd.checks&&dd.checks['goal_'+i]){
-        pending.push({dayKey:k,goalIdx:i,goal,dd,date:d});
+    // Only daily goals need individual validation
+    goals.forEach((g,i)=>{
+      if((g.type==='daily'||!g.type)&&dd.checks&&dd.checks['goal_'+i]){
+        pending.push({dayKey:k,goalIdx:i,goal:g,dd,date:d});
       }
     });
+    // Weekly: if any weekly goal checked this day, add day-level validation
+    const hasWeekly=goals.some((g,i)=>g.type==='weekly'&&dd.checks&&dd.checks['goal_'+i]);
+    if(hasWeekly&&!pending.find(p=>p.dayKey===k&&p.isWeeklyDay)){
+      const weeklyOnDay=goals.map((g,i)=>({g,i})).filter(({g,i})=>g.type==='weekly'&&dd.checks&&dd.checks['goal_'+i]);
+      weeklyOnDay.forEach(({g,i})=>{
+        pending.push({dayKey:k,goalIdx:i,goal:g,dd,date:d,isWeekly:true});
+      });
+    }
   });
   return pending.sort((a,b)=>b.date-a.date);
 }
 
 function renderValidar(){
-  const other=getOther(); const me=getMe();
-  const isSunday=new Date().getDay()===0;
+  const oth=getOther();
+  const isSun=new Date().getDay()===0;
   let html='';
+  if(isSun) html+=`<div class="sunday-banner"><div class="sun-icon">📋</div><div class="sun-text"><div class="sun-title">Es domingo</div><div class="sun-sub">Toca hacer la revisión semanal</div></div><button class="sun-btn" onclick="openWeeklyReview()">Revisar</button></div>`;
 
-  if(isSunday){
-    html+=`<div class="sunday-banner">
-      <div class="sun-icon">📋</div>
-      <div class="sun-text">
-        <div class="sun-title">Es domingo</div>
-        <div class="sun-sub">Toca hacer la revisión semanal</div>
-      </div>
-      <button class="sun-btn" onclick="openWeeklyReview()">Revisar</button>
-    </div>`;
-  }
-
-  if(!other){
-    html+=`<div class="empty-state">El otro usuario aún no ha configurado su perfil.<br><br>Cuando lo haga, sus checks aparecerán aquí.</div>`;
-    document.getElementById('page-validar').innerHTML=html; return;
-  }
+  if(!oth){ html+=`<div class="empty-state">El otro usuario aún no ha configurado su perfil.</div>`; document.getElementById('page-validar').innerHTML=html; return; }
 
   const pending=getPendingValidations();
-  const otherDays=other.days||{};
-
-  if(pending.length===0){
-    html+=`<div class="empty-state">✅ Todo validado<br><br>No hay checks pendientes de ${other.name} en los últimos 7 días.</div>`;
+  if(!pending.length){
+    html+=`<div class="empty-state">✅ Todo validado<br><br>No hay checks pendientes de ${oth.name}.</div>`;
   } else {
-    html+=`<div class="sec"><div class="sec-title">Pendientes de ${other.name} (${pending.length})</div></div>`;
+    html+=`<div class="sec"><div class="sec-title">Pendientes de ${oth.name} (${pending.length})</div></div>`;
     pending.forEach(item=>{
-      const {dayKey,goalIdx,goal,dd}=item;
-      const dateObj=parseDate(dayKey);
-      const dateStr=dateObj.toLocaleDateString('es',{weekday:'short',day:'numeric',month:'short'});
-      const hasPhoto=!!dd.photo;
-      const hasGPS=!!dd.gps;
-      let proofHtml='';
-      if(hasPhoto) proofHtml+=`<img class="val-thumb" src="${dd.photo}" alt="prueba" onclick="openLightbox('${dayKey}')">`;
-      let metaHtml='';
-      if(hasGPS) metaHtml+=`<a class="val-gps" href="maps.apple.com/?ll=${dd.gps.lat},${dd.gps.lng}" target="_blank">📍 Ver en mapa (${dd.gps.lat.toFixed(3)},${dd.gps.lng.toFixed(3)})</a>`;
-      if(dd.note) metaHtml+=`<div class="val-note">"${dd.note}"</div>`;
-      if(dd.photoTime) metaHtml+=`<div class="val-note" style="color:var(--muted);font-size:10px">📸 ${new Date(dd.photoTime).toLocaleString('es')}</div>`;
+      const{dayKey,goalIdx,goal,dd}=item;
+      const dateStr=parseDate(dayKey).toLocaleDateString('es',{weekday:'short',day:'numeric',month:'short'});
       const isApproved=dd.approvedByOther===true;
       const isRejected=dd.approvedByOther==='rejected';
-      html+=`<div class="val-item" id="vi-${dayKey}-${goalIdx}">
-        <div class="val-header">
+      html+=`<div class="val-item">
+        <div class="val-hdr">
           <div class="val-info">
-            <div class="val-date">${dateStr}</div>
-            <div class="val-goal">${goal}</div>
+            <div class="val-date">${dateStr} · <span class="badge ${goal.type==='weekly'?'b-weekly':'b-daily'}">${goal.type==='weekly'?'semanal':'diario'}</span></div>
+            <div class="val-goal">${goal.name}</div>
           </div>
-          ${proofHtml}
+          ${dd.photo?`<img class="val-thumb" src="${dd.photo}" onclick="openLightboxSrc('${dayKey}')">`: ''}
         </div>
-        ${metaHtml?`<div class="val-meta">${metaHtml}</div>`:''}
-        ${isApproved
-          ? `<div class="val-done-badge" style="color:var(--gold)">⭐ Aprobado — cuenta doble</div>`
-          : isRejected
-          ? `<div class="val-done-badge" style="color:var(--acc)">✗ Rechazado</div>`
-          : `<div class="val-actions">
-              <button class="val-approve" onclick="validateCheck('${dayKey}',${goalIdx},true)">✓ Aprobar</button>
-              <button class="val-reject" onclick="validateCheck('${dayKey}',${goalIdx},false)">✗ Rechazar</button>
-            </div>`
-        }
+        <div class="val-meta">
+          ${dd.gps?`<a class="val-gps" href="maps.apple.com/?ll=${dd.gps.lat},${dd.gps.lng}" target="_blank">📍 Ver ubicación</a>`:''}
+          ${dd.note?`<div class="val-note">"${dd.note}"</div>`:''}
+          ${dd.photoTime?`<div class="val-time">📸 ${new Date(dd.photoTime).toLocaleString('es')}</div>`:''}
+          ${!dd.photo&&!dd.gps?`<div class="val-note" style="color:var(--acc)">⚠️ Sin prueba adjunta</div>`:''}
+        </div>
+        ${isApproved?`<div class="val-done-row" style="color:var(--gold)">⭐ Aprobado — cuenta para verificados</div>`:
+          isRejected?`<div class="val-done-row" style="color:var(--acc)">✗ Rechazado</div>`:
+          `<div class="val-actions">
+            <button class="val-approve" onclick="validateCheck('${dayKey}',${goalIdx},true)">✓ Aprobar</button>
+            <button class="val-reject" onclick="validateCheck('${dayKey}',${goalIdx},false)">✗ Rechazar</button>
+          </div>`}
       </div>`;
     });
   }
-
-  // Also show already validated this week
-  const validated=[];
-  const now=new Date(); now.setHours(0,0,0,0);
-  const cutoff7=new Date(now); cutoff7.setDate(now.getDate()-7);
-  Object.keys(otherDays).forEach(k=>{
-    const d=parseDate(k); if(d<cutoff7||d>now) return;
-    const dd=otherDays[k];
-    if(dd.approvedByOther===true){
-      const goals=other.goals||[];
-      goals.forEach((_,i)=>{ if(dd.checks&&dd.checks['goal_'+i]) validated.push({dayKey:k,goal:goals[i]}); });
-    }
-  });
-  if(validated.length>0){
-    html+=`<div class="sec"><div class="sec-title">Ya validados esta semana</div></div>`;
-    html+=`<div class="card" style="margin:0 16px">`;
-    validated.forEach(v=>{
-      const d=parseDate(v.dayKey);
-      html+=`<div style="padding:10px 14px;border-bottom:1px solid var(--border);font-size:13px;display:flex;gap:8px;align-items:center"><span style="color:var(--gold)">⭐</span><span style="color:var(--muted);min-width:60px;font-size:11px">${d.toLocaleDateString('es',{day:'numeric',month:'short'})}</span><span>${v.goal}</span></div>`;
-    });
-    html+=`</div>`;
-  }
-
   document.getElementById('page-validar').innerHTML=html;
 }
 
 function validateCheck(dayKey,goalIdx,approve){
-  const s=getS();
-  const other=otherUser();
-  if(!s[other]||!s[other].days[dayKey]) return;
-  // Set approvedByOther on the whole day (simplification: all checks on that day share approval)
-  s[other].days[dayKey].approvedByOther=approve?true:'rejected';
-  setS(s);
-  renderValidar();
-  renderBanners();
-  toast(approve?'✓ Aprobado ⭐':'Rechazado');
+  const s=getS(); const u=s[other()];
+  if(!u||!u.days[dayKey]) return;
+  u.days[dayKey].approvedByOther=approve?true:'rejected';
+  setS(s); renderValidar(); renderBanners();
+  toast(approve?'⭐ Aprobado — sube al % verificado':'Rechazado');
 }
 
-function openLightbox(dayKey){
-  const other=getOther(); if(!other) return;
-  const dd=other.days[dayKey]; if(!dd||!dd.photo) return;
+function openLightboxSrc(dayKey){
+  const oth=getOther(); if(!oth) return;
+  const dd=oth.days[dayKey]; if(!dd?.photo) return;
   document.getElementById('lightbox-img').src=dd.photo;
   document.getElementById('lightbox').classList.add('show');
 }
 function closeLightbox(){ document.getElementById('lightbox').classList.remove('show'); }
 
-// ===================== WEEKLY REVIEW =====================
-function getWeekMon(offset){
-  const now=new Date(); const dow=now.getDay();
-  const mon=new Date(now);
-  mon.setDate(now.getDate()-(dow===0?6:dow-1)+(offset||0)*7);
-  mon.setHours(0,0,0,0);
-  return mon;
-}
-
+// ============================================================
+// WEEKLY REVIEW
+// ============================================================
 function openWeeklyReview(){
-  const mon=getWeekMon(0);
-  const me=getMe(); const other=getOther();
-  const meScore=weekScore(me,mon);
-  const otherScore=other?weekScore(other,mon):{pct:0};
-  const modal=document.getElementById('review-modal');
-  const inner=document.getElementById('review-modal-inner');
-  const weekStr=mon.toLocaleDateString('es',{day:'numeric',month:'long'});
-  inner.innerHTML=`
-    <div class="review-title">Revisión semanal 📋</div>
-    <div class="review-sub">Semana del ${weekStr}</div>
-    <div class="review-cols">
+  const mon=getWeekMon(0); const me=getMe(); const oth=getOther();
+  const mySc=weekScores(me,mon);
+  const othSc=oth?weekScores(oth,mon):{personal:0,verified:0};
+  const inner=document.getElementById('review-inner');
+  inner.innerHTML=`<div class="review-title">Revisión semanal 📋</div>
+    <div class="review-sub">Semana del ${mon.toLocaleDateString('es',{day:'numeric',month:'long'})}</div>
+    <div class="review-duo">
       <div class="review-col">
         <div class="review-col-name">${me?.name||'Tú'}</div>
-        <div class="review-col-score" style="color:${meScore.pct>=80?'var(--green)':meScore.pct>=50?'var(--gold)':'var(--acc)'}">${meScore.pct}%</div>
+        <div class="review-col-personal ${mySc.personal>=80?'great':mySc.personal>=50?'ok':'bad'}">${mySc.personal}%</div>
+        <div class="review-col-verified">${mySc.verified}%</div>
+        <div class="review-col-vlabel">verificado</div>
       </div>
       <div class="review-col">
-        <div class="review-col-name">${other?.name||'El otro'}</div>
-        <div class="review-col-score" style="color:${otherScore.pct>=80?'var(--green)':otherScore.pct>=50?'var(--gold)':'var(--acc)'}">${otherScore.pct}%</div>
+        <div class="review-col-name">${oth?.name||'El otro'}</div>
+        <div class="review-col-personal ${othSc.personal>=80?'great':othSc.personal>=50?'ok':'bad'}">${othSc.personal}%</div>
+        <div class="review-col-verified">${othSc.verified}%</div>
+        <div class="review-col-vlabel">verificado</div>
       </div>
     </div>
-    <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px">
-      Revisad juntos los checks de la semana antes de confirmar. Una vez confirmado, queda registrado.
-    </p>
-    <button class="review-confirm" onclick="confirmWeeklyReview()">Confirmar revisión ✓</button>
+    <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px">Revisad juntos antes de confirmar. Una vez confirmado queda bloqueado.</p>
+    <button class="review-confirm" onclick="confirmWeeklyReview(${mon.getTime()})">Confirmar revisión ✓</button>
     <button class="review-skip" onclick="closeWeeklyReview()">Ahora no</button>`;
-  modal.classList.add('show');
+  document.getElementById('review-modal').classList.add('show');
 }
 
-function confirmWeeklyReview(){
-  const s=getS(); const me=s[currentUser];
-  const mon=getWeekMon(0);
-  const weekKey=`${mon.getFullYear()}-W${getWeekNum(mon)}`;
-  if(!me.weeklyReviews) me.weeklyReviews={};
-  me.weeklyReviews[weekKey]={score:weekScore(me,mon).pct,reviewedAt:new Date().toISOString()};
-  setS(s);
-  closeWeeklyReview();
-  toast('Revisión semanal guardada ✓');
+function confirmWeeklyReview(monTs){
+  const mon=new Date(monTs); const s=getS(); const u=s[currentUser];
+  const wk=`${mon.getFullYear()}-W${getWeekNum(mon)}`;
+  if(!u.weeklyReviews) u.weeklyReviews={};
+  const sc=weekScores(u,mon);
+  u.weeklyReviews[wk]={personal:sc.personal,verified:sc.verified,reviewedAt:new Date().toISOString()};
+  setS(s); closeWeeklyReview(); toast('Revisión guardada ✓');
 }
-
 function closeWeeklyReview(){ document.getElementById('review-modal').classList.remove('show'); }
 
-function getWeekNum(d){
-  const date=new Date(d); date.setHours(0,0,0,0);
-  date.setDate(date.getDate()+3-(date.getDay()+6)%7);
-  const week1=new Date(date.getFullYear(),0,4);
-  return 1+Math.round(((date.getTime()-week1.getTime())/86400000-3+(week1.getDay()+6)%7)/7);
-}
-
-// ===================== PROGRESO =====================
+// ============================================================
+// PROGRESO
+// ============================================================
 function renderProgreso(){
-  const me=getMe(); const other=getOther();
-  if(!me) return;
-  const meScore=overallScore(me);
-  const otherScore=other?overallScore(other):0;
-  const meStreak=streakCount(me);
-  const otherStreak=other?streakCount(other):0;
+  const me=getMe(); const oth=getOther(); if(!me) return;
+  const mySc=computeScores(me);
+  const othSc=oth?computeScores(oth):{personal:0,verified:0};
+  const myStreak=streakCount(me); const othStreak=oth?streakCount(oth):0;
 
-  const scoreClass=pct=>pct>=80?'great':pct>=50?'ok':'bad';
-
-  let html=`<div class="prog-cols">
-    <div class="prog-col">
-      <div class="prog-col-name">${me.name}</div>
-      <div class="prog-pct ${scoreClass(meScore)}">${meScore}%</div>
-      <div class="prog-streak">${meStreak}🔥 racha</div>
-      ${renderWeekBars(me)}
-    </div>
-    <div class="prog-col">
-      <div class="prog-col-name">${other?other.name:'El otro'}</div>
-      <div class="prog-pct ${scoreClass(otherScore)}">${other?otherScore+'%':'—'}</div>
-      <div class="prog-streak">${other?otherStreak+'🔥 racha':'sin datos'}</div>
-      ${other?renderWeekBars(other):''}
-    </div>
-  </div>`;
+  let html=`<div class="prog-duo">`;
+  [[me,mySc,myStreak],[oth,othSc,othStreak]].forEach(([u,sc,str])=>{
+    if(!u){ html+=`<div class="prog-col"><div class="prog-col-name">El otro</div><div style="color:var(--muted);font-size:13px;margin-top:8px">Sin datos</div></div>`; return; }
+    html+=`<div class="prog-col">
+      <div class="prog-col-name">${u.name}</div>
+      <div class="prog-score-row">
+        <div>
+          <div class="prog-personal ${sc.personal>=80?'great':sc.personal>=50?'ok':'bad'}">${sc.personal}%</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">personal</div>
+        </div>
+        <div style="margin-left:8px">
+          <div class="prog-verified" style="font-size:18px">${sc.verified}%</div>
+          <div class="prog-verified-label">verificado</div>
+        </div>
+      </div>
+      <div class="prog-bar"><div class="prog-fill fill-personal" style="width:${sc.personal}%"></div></div>
+      <div class="prog-bar" style="margin-bottom:6px"><div class="prog-fill fill-verified" style="width:${sc.verified}%;background:var(--gold)"></div></div>
+      <div style="font-size:10px;color:var(--muted)">${str}🔥 racha</div>
+      <div class="prog-week-bars">
+        ${[3,2,1,0].map(w=>{
+          const mon=getWeekMon(-w); if(mon<START) return '';
+          const wsc=weekScores(u,mon);
+          return `<div class="pwb-row">
+            <div class="pwb-label"><span>${w===0?'esta':'hace '+w+'s'}</span><span>${wsc.personal}% / <span style="color:var(--gold)">${wsc.verified}%v</span></span></div>
+            <div class="prog-bar"><div class="prog-fill fill-personal" style="width:${wsc.personal}%"></div></div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  });
+  html+=`</div>`;
 
   // Goal breakdown
-  html+=`<div class="sec"><div class="sec-title">Por objetivo</div>`;
-  html+=`<div class="card">`;
+  html+=`<div class="sec"><div class="sec-title">Por objetivo</div><div class="card">`;
   me.goals.forEach((g,i)=>{
-    const pct=goalCompletionRate(me,i);
-    html+=`<div style="padding:10px 14px;border-bottom:1px solid var(--border)">
-      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
-        <span>${g}</span><span style="font-weight:700;color:var(--gold)">${pct}%</span>
+    const pct=goalRate(me,i);
+    const typeLabel=g.type==='weekly'?`semanal (${g.weeklyTarget}x)`:'diario';
+    html+=`<div class="row-sep" style="padding:11px 14px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;gap:8px">
+        <span style="flex:1">${g.name} <span style="font-size:10px;color:var(--muted)">${typeLabel}</span></span>
+        <span style="font-weight:700;color:var(--acc)">${pct}%</span>
       </div>
-      <div class="prog-bar"><div class="prog-fill fill-acc" style="width:${pct}%"></div></div>
+      <div class="prog-bar"><div class="prog-fill fill-personal" style="width:${pct}%"></div></div>
     </div>`;
   });
   html+=`</div></div>`;
 
-  // Prize section
+  // Prize
   const shared=getShared();
-  const bothReady=meScore>=80&&otherScore>=80;
-  const dayNum=daysBetween(START,new Date());
-  html+=`<div class="prize-section"><div class="prize-locked">
-    <div class="prize-lock-icon">${bothReady?'🎉':'🔒'}</div>
-    <div class="prize-lock-title">${bothReady?'¡Premio desbloqueado!':'Premio bloqueado'}</div>
-    <div class="prize-lock-sub">${bothReady?`Los dos habéis llegado al 80%+. Hora de hacer el plan.`:`Los dos necesitáis llegar al 80% para desbloquear el plan. Faltan: ${me.name} ${meScore<80?(80-meScore)+'% más':'✓'} · ${other?other.name+' '+(otherScore<80?(80-otherScore)+'% más':'✓'):'el otro sin datos'}`}</div>
-    <div class="prize-progress">
-      <div class="prize-prog-row">
-        <span class="prize-prog-name">${me.name}</span>
-        <div class="prize-prog-bar"><div class="prize-prog-fill" style="width:${Math.min(100,meScore)}%;background:${meScore>=80?'var(--green)':'var(--acc)'}"></div></div>
-        <span class="prize-prog-pct" style="color:${meScore>=80?'var(--green)':'var(--acc)'}">${meScore}%</span>
-      </div>
-      ${other?`<div class="prize-prog-row">
-        <span class="prize-prog-name">${other.name}</span>
-        <div class="prize-prog-bar"><div class="prize-prog-fill" style="width:${Math.min(100,otherScore)}%;background:${otherScore>=80?'var(--green)':'var(--gold)'}"></div></div>
-        <span class="prize-prog-pct" style="color:${otherScore>=80?'var(--green)':'var(--gold)'}">${otherScore}%</span>
-      </div>`:''}
-      <div style="text-align:center;margin-top:12px;font-size:13px;color:var(--muted)">Objetivo: 80% cada uno</div>
+  const both=mySc.personal>=80&&othSc.personal>=80;
+  html+=`<div class="prize-section"><div class="prize-body">
+    <div class="prize-icon">${both?'🎉':'🔒'}</div>
+    <div class="prize-title">${both?'¡Premio desbloqueado!':'Premio bloqueado'}</div>
+    <div class="prize-sub">${both?'Los dos al 80%+. ¡Hora de hacer el plan!':'Los dos necesitáis llegar al 80% personal para desbloquear el plan.'}</div>
+    <div class="prize-prog-row">
+      <span class="prize-prog-name">${me.name}</span>
+      <div class="prize-prog-bar"><div class="prize-prog-fill" style="width:${Math.min(100,mySc.personal)}%;background:${mySc.personal>=80?'var(--green)':'var(--acc)'}"></div></div>
+      <span class="prize-prog-pct" style="color:${mySc.personal>=80?'var(--green)':'var(--acc)'}">${mySc.personal}%</span>
     </div>
+    ${oth?`<div class="prize-prog-row">
+      <span class="prize-prog-name">${oth.name}</span>
+      <div class="prize-prog-bar"><div class="prize-prog-fill" style="width:${Math.min(100,othSc.personal)}%;background:${othSc.personal>=80?'var(--green)':'var(--gold)'}"></div></div>
+      <span class="prize-prog-pct" style="color:${othSc.personal>=80?'var(--green)':'var(--gold)'}">${othSc.personal}%</span>
+    </div>`:''}
+    <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--muted)">Objetivo: 80% personal cada uno</div>
   </div></div>`;
 
-  // Photo galleries
-  html+=`<div class="sec"><div class="sec-title">Fotos de ${me.name}</div>`;
-  const myPhotos=getPhotosFor(me);
-  html+=myPhotos.length?`<div class="card"><div class="gallery">${myPhotos.map(p=>`<img class="gallery-img" src="${p.photo}" onclick="openLightboxDirect('${p.photo}')" title="${p.date}">`).join('')}</div></div>`:`<div class="card"><div style="padding:14px;font-size:13px;color:var(--muted)">Sin fotos todavía</div></div>`;
-  html+=`</div>`;
-
-  if(other){
-    html+=`<div class="sec"><div class="sec-title">Fotos de ${other.name}</div>`;
-    const otherPhotos=getPhotosFor(other);
-    html+=otherPhotos.length?`<div class="card"><div class="gallery">${otherPhotos.map(p=>`<img class="gallery-img" src="${p.photo}" onclick="openLightboxDirect('${p.photo}')" title="${p.date}">`).join('')}</div></div>`:`<div class="card"><div style="padding:14px;font-size:13px;color:var(--muted)">Sin fotos todavía</div></div>`;
+  // Galleries
+  [me,oth].filter(Boolean).forEach(u=>{
+    const photos=Object.entries(u.days||{}).filter(([,d])=>d.photo).sort((a,b)=>b[0].localeCompare(a[0])).slice(0,12);
+    html+=`<div class="sec"><div class="sec-title">Fotos de ${u.name}</div>`;
+    html+=photos.length
+      ?`<div class="card"><div class="gallery-grid">${photos.map(([,d])=>`<img class="gallery-img" src="${d.photo}" onclick="openLightboxImg('${d.photo}')">`).join('')}</div></div>`
+      :`<div class="card" style="padding:14px;font-size:13px;color:var(--muted)">Sin fotos todavía</div>`;
     html+=`</div>`;
-  }
+  });
 
   document.getElementById('page-progreso').innerHTML=html;
 }
 
-function renderWeekBars(userData){
-  let html='<div class="prog-bar-wrap">';
-  for(let w=3;w>=0;w--){
-    const mon=getWeekMon(-w);
-    if(mon<START) continue;
-    const sc=weekScore(userData,mon);
-    const lbl=w===0?'Esta sem':`-${w}s`;
-    html+=`<div class="prog-bar-label"><span>${lbl}</span><span>${sc.pct}%</span></div>
-      <div class="prog-bar" style="margin-bottom:4px"><div class="prog-fill fill-acc" style="width:${sc.pct}%"></div></div>`;
-  }
-  return html+'</div>';
-}
-
-function goalCompletionRate(userData,goalIdx){
-  const days=userData.days||{}; const goals=userData.goals||[];
+function goalRate(userData,goalIdx){
+  const g=userData.goals[goalIdx]; if(!g) return 0;
+  const days=userData.days||{};
   const now=new Date(); now.setHours(0,0,0,0);
+  if(g.type==='weekly'){
+    let done=0,total=0;
+    const d=new Date(START);
+    while(d<=now&&d<=END){
+      if(d.getDay()===1||dateKey(d)===dateKey(START)){
+        const mon=new Date(d);
+        total+=g.weeklyTarget||1;
+        done+=Math.min(weeklyCount(userData,goalIdx,mon),g.weeklyTarget||1);
+      }
+      d.setDate(d.getDate()+1);
+    }
+    return total?Math.round(done/total*100):0;
+  }
   let done=0,total=0;
   const d=new Date(START);
   while(d<=now&&d<=END){
-    const k=dateKey(d); const dd=days[k];
     total++;
-    if(dd&&dd.checks&&dd.checks['goal_'+goalIdx]) done++;
+    const dd=days[dateKey(d)];
+    if(dd?.checks?.['goal_'+goalIdx]) done++;
     d.setDate(d.getDate()+1);
   }
   return total?Math.round(done/total*100):0;
 }
 
-function getPhotosFor(userData){
-  const photos=[];
-  Object.entries(userData.days||{}).forEach(([k,dd])=>{
-    if(dd.photo) photos.push({date:k,photo:dd.photo});
-  });
-  return photos.sort((a,b)=>b.date.localeCompare(a.date)).slice(0,12);
-}
-
-function openLightboxDirect(src){
+function openLightboxImg(src){
   document.getElementById('lightbox-img').src=src;
   document.getElementById('lightbox').classList.add('show');
 }
 
-// ===================== SEMANA =====================
-let semanaOffset=0;
-
+// ============================================================
+// SEMANA
+// ============================================================
+let semOffset=0;
 function renderSemana(){
-  const me=getMe(); const other=getOther();
-  if(!me) return;
-  const mon=getWeekMon(semanaOffset);
+  const me=getMe(); const oth=getOther(); if(!me) return;
+  const mon=getWeekMon(semOffset);
   const sun=new Date(mon); sun.setDate(mon.getDate()+6);
   const opts={day:'numeric',month:'short'};
   const now=new Date(); now.setHours(0,0,0,0);
-  const isCurrentWeek=semanaOffset===0;
-  const weekKey=`${mon.getFullYear()}-W${getWeekNum(mon)}`;
-  const isLocked=me.weeklyReviews&&me.weeklyReviews[weekKey];
+  const isCurrent=semOffset===0;
+  const wk=`${mon.getFullYear()}-W${getWeekNum(mon)}`;
+  const locked=me.weeklyReviews?.[wk];
 
   let html=`<div class="week-nav">
-    <button class="wn-btn" onclick="semanaOffset--;renderSemana()">‹</button>
+    <button class="wn-btn" onclick="semOffset--;renderSemana()">‹</button>
     <div class="wn-label">${mon.toLocaleDateString('es',opts)} – ${sun.toLocaleDateString('es',opts)}</div>
-    <button class="wn-btn" onclick="semanaOffset++;renderSemana()">›</button>
+    <button class="wn-btn" onclick="semOffset++;renderSemana()">›</button>
   </div>`;
 
-  if(isLocked){
-    html+=`<div class="locked-week">🔒 Semana revisada · Score: ${isLocked.score}% · ${new Date(isLocked.reviewedAt).toLocaleDateString('es')}</div>`;
-  }
+  if(locked) html+=`<div class="locked-week">🔒 Revisada · Personal: ${locked.personal}% · Verificado: ${locked.verified}% · ${new Date(locked.reviewedAt).toLocaleDateString('es')}</div>`;
 
-  const meWS=weekScore(me,mon);
-  const otherWS=other?weekScore(other,mon):null;
-
-  html+=`<div class="week-cards">`;
-  [me,other].forEach((u,idx)=>{
-    if(!u){ html+=`<div class="week-card"><div class="wc-name">El otro</div><div style="color:var(--muted);font-size:12px">Sin datos</div></div>`; return; }
-    const ws=idx===0?meWS:otherWS;
-    const scoreColor=ws.pct>=80?'var(--green)':ws.pct>=50?'var(--gold)':'var(--acc)';
-    // Collect workout types for this week
+  [me,oth].forEach(u=>{
+    if(!u){ html+=`<div class="week-summary" style="margin:10px 16px 0"><div style="padding:14px;font-size:13px;color:var(--muted)">El otro sin datos</div></div>`; return; }
+    const sc=weekScores(u,mon);
+    // Workout types this week
     const wts=new Set();
     for(let i=0;i<7;i++){
       const d=new Date(mon); d.setDate(mon.getDate()+i);
       if(d<START||d>END||d>now) continue;
-      const dd=u.days[dateKey(d)];
-      if(dd&&dd.workoutType) wts.add(dd.workoutType);
+      const dd=u.days[dateKey(d)]; if(dd?.workoutType) wts.add(dd.workoutType);
     }
-    html+=`<div class="week-card">
-      <div class="wc-name">${u.name}</div>
-      <div class="wc-score" style="color:${scoreColor}">${ws.pct}%</div>
-      ${u.goals.map((g,i)=>`
-        <div class="wc-goal-row">
-          <span class="wc-goal-name">${g}</span>
-          <span class="wc-goal-pct" style="color:${ws.goalPcts[i]>=80?'var(--green)':ws.goalPcts[i]>=50?'var(--gold)':'var(--acc)'}">${ws.goalPcts[i]}%</span>
+    html+=`<div class="week-summary">
+      <div class="ws-header">
+        <div class="ws-left"><h3>${u.name}</h3><p>${u===me?'Tú':'El otro'} · ${isCurrent?'en curso':'pasado'}</p></div>
+        <div class="ws-scores">
+          <div class="ws-score-block">
+            <div class="ws-score-num ${sc.personal>=80?'great':sc.personal>=50?'ok':'bad'}">${sc.personal}%</div>
+            <div class="ws-score-label">personal</div>
+          </div>
+          <div class="ws-score-block">
+            <div class="ws-score-num" style="color:var(--gold)">${sc.verified}%</div>
+            <div class="ws-score-label">verificado</div>
+          </div>
+        </div>
+      </div>
+      <div class="ws-details">
+        ${sc.goalData.map(gd=>`<div class="ws-goal-row">
+          <span class="ws-goal-name">${gd.goal.name}</span>
+          <span class="badge ${gd.goal.type==='weekly'?'b-weekly':'b-daily'}" style="font-size:9px;flex-shrink:0">${gd.goal.type==='weekly'?'sem':'día'}</span>
+          <div class="ws-goal-bar"><div class="ws-goal-fill" style="width:${gd.pct}%;background:${gd.pct>=80?'var(--green)':gd.pct>=50?'var(--gold)':'var(--acc)'}"></div></div>
+          <span class="ws-goal-pct" style="color:${gd.pct>=80?'var(--green)':gd.pct>=50?'var(--gold)':'var(--acc)'}">${gd.pct}%</span>
         </div>`).join('')}
-      ${wts.size?`<div class="wt-chips-wrap">${[...wts].map(w=>`<span class="wt-chip-disp">${w}</span>`).join('')}</div>`:''}
+      </div>
+      ${wts.size?`<div class="ws-wts">${[...wts].map(w=>`<span class="ws-wt-chip">${w}</span>`).join('')}</div>`:''}
     </div>`;
   });
-  html+=`</div>`;
 
-  // Validation status this week
-  if(other){
+  // Validation status
+  if(oth){
     let approved=0,pending=0;
-    const otherDays=other.days||{};
     for(let i=0;i<7;i++){
       const d=new Date(mon); d.setDate(mon.getDate()+i);
       if(d<START||d>END||d>now) continue;
-      const dd=otherDays[dateKey(d)];
-      if(!dd) continue;
-      other.goals.forEach((_,g)=>{
-        if(dd.checks&&dd.checks['goal_'+g]){
+      const dd=oth.days?.[dateKey(d)]; if(!dd) continue;
+      oth.goals.forEach((g,gi)=>{
+        if((g.type==='daily'||!g.type)&&dd.checks?.['goal_'+gi]){
           if(dd.approvedByOther===true) approved++;
           else pending++;
         }
       });
     }
     html+=`<div class="val-status">
-      <span class="val-status-label">Checks de ${other.name} validados</span>
-      <span class="val-status-count">${approved} ✓ · ${pending} pendientes</span>
+      <span style="color:var(--muted)">Checks de ${oth.name} validados</span>
+      <span style="font-weight:700;color:var(--gold)">${approved}✓ · ${pending} pendientes</span>
     </div>`;
   }
 
-  if(isCurrentWeek&&!isLocked&&new Date().getDay()===0){
-    html+=`<div style="margin:10px 16px 0"><button style="width:100%;background:var(--gold);color:#000;border:none;border-radius:var(--rad);padding:14px;font-size:14px;font-weight:700;cursor:pointer" onclick="openWeeklyReview()">📋 Hacer revisión semanal</button></div>`;
+  if(isCurrent&&!locked&&new Date().getDay()===0){
+    html+=`<div style="margin:12px 16px 0"><button style="width:100%;background:var(--gold);color:#0f0f14;border:none;border-radius:var(--rad);padding:14px;font-size:14px;font-weight:700;cursor:pointer" onclick="openWeeklyReview()">📋 Hacer revisión semanal</button></div>`;
   }
 
   document.getElementById('page-semana').innerHTML=html;
 }
 
-// ===================== PRIZE CHECK =====================
+// ============================================================
+// PRIZE
+// ============================================================
 function checkPrize(){
-  const me=getMe(); const other=getOther();
-  if(!me||!other) return;
-  const dayNum=daysBetween(START,new Date());
-  if(dayNum<60) return; // only after day 60
-  const meScore=overallScore(me);
-  const otherScore=overallScore(other);
-  if(meScore>=80&&otherScore>=80){
+  const me=getMe(); const oth=getOther(); if(!me||!oth) return;
+  if(daysBetween(START,new Date())<60) return;
+  const mySc=computeScores(me); const othSc=computeScores(oth);
+  if(mySc.personal>=80&&othSc.personal>=80){
     const s=getS();
-    if(!s._prizeShown){
-      s._prizeShown=true; setS(s);
-      showPrize();
-    }
+    if(!s._prizeShown){ s._prizeShown=true; setS(s); showPrize(); }
   }
 }
 
@@ -1180,74 +1301,58 @@ function showPrize(){
   document.getElementById('prize-overlay').classList.add('show');
   launchConfetti();
 }
-
 function closePrize(){ document.getElementById('prize-overlay').classList.remove('show'); }
-
 function sharePrize(){
-  const shared=getShared();
-  const me=getMe(); const other=getOther();
-  const msg=`🎉 ¡Lo conseguimos! ${me?.name} y ${other?.name} hemos completado El Reto de 90 días y nos hemos ganado: ${shared.prize}. ¡Hora de hacer ese plan! 💪`;
-  if(navigator.clipboard) navigator.clipboard.writeText(msg).then(()=>toast('Copiado al portapapeles 🎊'));
-  else toast(msg);
+  const s=getShared(); const me=getMe(); const oth=getOther();
+  const msg=`🎉 ¡Lo conseguimos! ${me?.name} y ${oth?.name} hemos completado El Reto de 90 días. Premio: ${s.prize||'un plan chulo juntos'} 💪`;
+  if(navigator.clipboard) navigator.clipboard.writeText(msg).then(()=>toast('Copiado 🎊'));
+  else toast(msg.slice(0,60)+'...');
 }
-
 function launchConfetti(){
-  const wrap=document.getElementById('confetti-wrap');
-  wrap.innerHTML='';
-  const colors=['#c43820','#e8a020','#4caf76','#5a9ff0','#f0ead6','#e8c84a'];
+  const wrap=document.getElementById('confetti-wrap'); wrap.innerHTML='';
+  const colors=['#c43820','#e8a020','#4caf76','#5a9ff0','#f0ead6'];
   for(let i=0;i<80;i++){
-    const el=document.createElement('div');
-    el.className='confetti-piece';
-    el.style.cssText=`left:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};width:${6+Math.random()*8}px;height:${6+Math.random()*8}px;border-radius:${Math.random()>0.5?'50%':'2px'};animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*2}s`;
+    const el=document.createElement('div'); el.className='confetti-piece';
+    const size=6+Math.random()*8;
+    el.style.cssText=`left:${Math.random()*100}%;top:-20px;width:${size}px;height:${size}px;background:${colors[i%colors.length]};border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*2}s`;
     wrap.appendChild(el);
   }
   setTimeout(()=>wrap.innerHTML='',6000);
 }
 
-// ===================== SETTINGS =====================
+// ============================================================
+// SETTINGS
+// ============================================================
 function showSettings(){ document.getElementById('settings-modal').classList.add('show'); }
 function hideSettings(){ document.getElementById('settings-modal').classList.remove('show'); }
-
 function switchUser(){
   hideSettings();
-  const s=getS();
-  const other=otherUser();
-  if(s[other]){
-    s._currentUser=other;
-    setS(s);
-    currentUser=other;
-    initApp();
-    toast('Usuario cambiado a '+s[other].name);
+  const s=getS(); const oth=other();
+  if(s[oth]){
+    s._currentUser=oth; setS(s); currentUser=oth; initApp(); toast('Usuario: '+s[oth].name);
   } else {
-    // Other user not set up yet — go to onboarding
-    const s2=getS();
-    delete s2._currentUser;
-    setS(s2);
-    currentUser=null;
-    obName=null; goalCount=0;
+    const s2=getS(); delete s2._currentUser; setS(s2);
+    currentUser=null; obName=null; goalCount=0;
     document.getElementById('goal-list').innerHTML='';
     document.querySelectorAll('.name-btn').forEach(b=>b.classList.remove('sel'));
     showScreen('screen-ob');
     addGoalInput(); addGoalInput(); addGoalInput();
-    toast('Configurando perfil del otro usuario');
+    toast('Configura el perfil del otro');
   }
 }
+function resetAll(){ if(confirm('¿Resetear todo?')){ localStorage.removeItem('elreto'); location.reload(); } }
 
-function resetAll(){
-  if(confirm('¿Resetear todo? Se perderán todos los datos.')){
-    localStorage.removeItem('elreto');
-    location.reload();
-  }
+// ============================================================
+// TOAST
+// ============================================================
+function toast(msg,ms){
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),ms||2200);
 }
 
-// ===================== TOAST =====================
-function toast(msg,dur){
-  const t=document.getElementById('toast');
-  t.textContent=msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),dur||2200);
-}
-
-// ===================== INIT =====================
+// ============================================================
+// INIT
+// ============================================================
 initOnboarding();
 </script>
 </body>
